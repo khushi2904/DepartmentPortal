@@ -1,0 +1,244 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student.master.cs" Inherits="DepartmentPortal.Student" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Home </title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <style>
+            body,html{
+		height: 100%;
+	}
+
+	/* remove outer padding */
+	.main .row{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	/*Remove rounded coners*/
+
+	nav.sidebar.navbar {
+		border-radius: 0px;
+	}
+
+	nav.sidebar, .main{
+		-webkit-transition: margin 200ms ease-out;
+	    -moz-transition: margin 200ms ease-out;
+	    -o-transition: margin 200ms ease-out;
+	    transition: margin 200ms ease-out;
+	}
+
+	/* Add gap to nav and right windows.*/
+	.main{
+		padding: 10px 10px 0 10px;
+	}
+
+	/* .....NavBar: Icon only with coloring/layout.....*/
+
+	/*small/medium side display*/
+	@media (min-width: 768px) {
+
+		/*Allow main to be next to Nav*/
+		.main{
+			position: absolute;
+			width: calc(100% - 40px); /*keeps 100% minus nav size*/
+			margin-left: 40px;
+			float: right;
+		}
+
+		/*lets nav bar to be showed on mouseover*/
+		nav.sidebar:hover + .main{
+			margin-left: 200px;
+		}
+
+		/*Center Brand*/
+		nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+			margin-left: 0px;
+		}
+		/*Center Brand*/
+		nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+			text-align: center;
+			width: 100%;
+			margin-left: 0px;
+		}
+
+		/*Center Icons*/
+		nav.sidebar a{
+			padding-right: 13px;
+		}
+
+		/*adds border top to first nav box */
+		nav.sidebar .navbar-nav > li:first-child{
+			border-top: 1px #e5e5e5 solid;
+		}
+
+		/*adds border to bottom nav boxes*/
+		nav.sidebar .navbar-nav > li{
+			border-bottom: 1px #e5e5e5 solid;
+		}
+
+		/* Colors/style dropdown box*/
+		nav.sidebar .navbar-nav .open .dropdown-menu {
+			position: static;
+			float: none;
+			width: auto;
+			margin-top: 0;
+			background-color: transparent;
+			border: 0;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+
+		/*allows nav box to use 100% width*/
+		nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+			padding: 0 0px 0 0px;
+		}
+
+		/*colors dropdown box text */
+		.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+			color: #777;
+		}
+
+		/*gives sidebar width/height*/
+		nav.sidebar{
+			width: 200px;
+			height: 100%;
+			margin-left: -160px;
+			float: left;
+			z-index: 8000;
+			margin-bottom: 0px;
+		}
+
+		/*give sidebar 100% width;*/
+		nav.sidebar li {
+			width: 100%;
+		}
+
+		/* Move nav to full on mouse over*/
+		nav.sidebar:hover{
+			margin-left: 0px;
+		}
+		/*for hiden things when navbar hidden*/
+		.forAnimate{
+			opacity: 0;
+		}
+	}
+
+	/* .....NavBar: Fully showing nav bar..... */
+
+	@media (min-width: 1330px) {
+
+		/*Allow main to be next to Nav*/
+		.main{
+			width: calc(100% - 200px); /*keeps 100% minus nav size*/
+			margin-left: 200px;
+		}
+
+		/*Show all nav*/
+		nav.sidebar{
+			margin-left: 0px;
+			float: left;
+		}
+		/*Show hidden items on nav*/
+		nav.sidebar .forAnimate{
+			opacity: 1;
+		}
+	}
+
+	nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+		color: #CCC;
+		background-color: transparent;
+	}
+
+	nav:hover .forAnimate{
+		opacity: 1;
+	}
+	section{
+		padding-left: 15px;
+	}
+
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        
+
+        <nav style="padding-top:1em; padding-bottom:1em; background-color:#000000; position:fixed; top:0; width:100%" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="studenthome.aspx"><p style="color:#dfcece; font-size:45px; margin-top:28px">Dharmsinh Desai University</p></a>
+                </div>
+                <div class="navbar navbar-nav navbar-right">
+                    <p style="color:#dfcece;font-size:22px; margin-top:40px"><i>Welcome, <%=Session["username"].ToString() %></i></p>
+                </div>
+            </div>
+        </nav>
+        
+
+        <nav style="margin-top:66px; position:fixed; background-color:black; border-style:solid" class="navbar navbar-inverse sidebar" role="navigation">
+            <div class="container-fluid" style="font-size:16px">
+                <ul class="nav navbar-nav">
+                    <li><a href="studenthome.aspx">Home</a></li>
+                    <li><a href="notifications.aspx">Notifications&nbsp;&nbsp;&nbsp;<span style="background-color:gold">&nbsp;<span style="text-align:right;background-color:gold;color:black"><%=Session["notifcount"] %></span>&nbsp;</span></a></li>
+                    <li><a href="messages.aspx">Messages&nbsp;&nbsp;&nbsp;<span style="background-color:gold">&nbsp;<span style="text-align:right;background-color:gold;color:black"><%=Session["messagecount"] %></span>&nbsp;</span></a></li>
+                    <li><a href="examresults.aspx">Exam Results</a></li>
+                    <li><a href="mysubjects.aspx">My Subjects</a></li>
+                    <li><a href="myprofs.aspx">Professors</a></li>
+                    <li><a href="calendar.aspx">College Calendar</a></li>                    
+                    <li><a href="profile.aspx">Profile</a></li>
+                    <li><a href="logout.aspx">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="container body-content">
+
+            <div style="margin-top:80px;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+         </div>
+        <div class="text-center" style="color:black; background-color:#f0b04b; bottom:0; padding:10px">
+            
+                <p>&copy; <%: DateTime.Now.Year %> - Khushi Desai</p>
+            
+        </div>
+    </form>
+
+
+
+</body>
+</html>
