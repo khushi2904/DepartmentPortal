@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DepartmentPortal" Class="DepartmentPortalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DepartmentPortal.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DepartmentPortalConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DailyTT" Member="DailyTTs">
+    <Type Name="DailyTT">
+      <Column Name="tt_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="branch" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="division" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s1_dur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s2_dur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s3_dur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s4_dur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s5_dur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s6_dur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s7_dur" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="s1_type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s2_type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s3_type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s4_type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s5_type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s6_type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s7_type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="DailyTT_lab_tt" Member="lab_tts" ThisKey="tt_Id" OtherKey="tt_id" Type="lab_tt" />
+      <Association Name="DailyTT_lecTT" Member="lecTTs" ThisKey="tt_Id" OtherKey="tt_id" Type="lecTT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="event_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="branch" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExternalMarks" Member="ExternalMarks">
+    <Type Name="ExternalMark">
+      <Column Name="marks_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sem_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="subject_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="marks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pract_marks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rem_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rem_2" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="grade" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Semester_ExternalMark" Member="Semester" ThisKey="sem_id" OtherKey="sem_id" Type="Semester" IsForeignKey="true" />
+      <Association Name="subject_ExternalMark" Member="subject" ThisKey="subject_id" OtherKey="subject_id" Type="subject" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Faculty" Member="Faculties">
+    <Type Name="Faculty">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="faculty_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="faculty_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="user_type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="branch" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="email_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="contact_no" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="add1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="add2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="state" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pincode" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="sec_ques_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sec_ans_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sec_ques_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sec_ans_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InternalMarks" Member="InternalMarks">
+    <Type Name="InternalMark">
+      <Column Name="marks_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="subject_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="session_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="marks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="session_InternalMark" Member="session" ThisKey="session_id" OtherKey="session_id" Type="session" IsForeignKey="true" />
+      <Association Name="subject_InternalMark" Member="subject" ThisKey="subject_id" OtherKey="subject_id" Type="subject" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lab_tt" Member="lab_tts">
+    <Type Name="lab_tt">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tt_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="day" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s1" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="f1" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="b1" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="DailyTT_lab_tt" Member="DailyTT" ThisKey="tt_id" OtherKey="tt_Id" Type="DailyTT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lecTT" Member="lecTTs">
+    <Type Name="lecTT">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tt_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="day" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="s1" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="s2" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="s3" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="s4" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="s5" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="s6" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="s7" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="f1" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="f2" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="f3" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="f4" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="f5" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="f6" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="f7" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Association Name="DailyTT_lecTT" Member="DailyTT" ThisKey="tt_id" OtherKey="tt_Id" Type="DailyTT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Semester" Member="Semesters">
+    <Type Name="Semester">
+      <Column Name="sem_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="student_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="roll_no" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="attempt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="division" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="batch" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Semester_ExternalMark" Member="ExternalMarks" ThisKey="sem_id" OtherKey="sem_id" Type="ExternalMark" />
+      <Association Name="Semester_session" Member="sessions" ThisKey="sem_id" OtherKey="sem_id" Type="session" />
+      <Association Name="Student_Semester" Member="Student" ThisKey="student_id" OtherKey="student_id" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.session" Member="sessions">
+    <Type Name="session">
+      <Column Name="session_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sem_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="session_type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="attendance" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Association Name="session_InternalMark" Member="InternalMarks" ThisKey="session_id" OtherKey="session_id" Type="InternalMark" />
+      <Association Name="Semester_session" Member="Semester" ThisKey="sem_id" OtherKey="sem_id" Type="Semester" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="student_id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="full_name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="branch" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="batch" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="current_sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="seat" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+      <Column Name="yoc" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="email_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="contact_no" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="add1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="add2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pincode" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="state" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="country" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sec_ques_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sec_ans_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sec_ques_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sec_ans_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Student_Semester" Member="Semesters" ThisKey="student_id" OtherKey="student_id" Type="Semester" />
+    </Type>
+  </Table>
+  <Table Name="dbo.subject" Member="subjects">
+    <Type Name="subject">
+      <Column Name="subject_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="subject_name" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="subject_description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="subject_credit" Type="System.Decimal" DbType="Decimal(2,1)" CanBeNull="true" />
+      <Column Name="allotted_sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="course" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Association Name="subject_ExternalMark" Member="ExternalMarks" ThisKey="subject_id" OtherKey="subject_id" Type="ExternalMark" />
+      <Association Name="subject_InternalMark" Member="InternalMarks" ThisKey="subject_id" OtherKey="subject_id" Type="InternalMark" />
+    </Type>
+  </Table>
+</Database>

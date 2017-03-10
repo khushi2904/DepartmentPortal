@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="485f55c28da24d8e9d78e17347c40823" Name="Diagram1">
+        <EntityTypeShape EntityType="DepartmentPortalModel.DailyTT" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.Event" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.ExternalMark" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.Faculty" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.InternalMark" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.lab_tt" Width="1.5" PointX="12" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.lecTT" Width="1.5" PointX="12" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.Semester" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.session" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.Student" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.subject" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepartmentPortalModel.TimeTable" Width="1.5" PointX="2.75" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__lab_tt__tt_id__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__lecTT__tt_id__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__ExternalM__sem_i__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__ExternalM__subje__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__InternalM__sessi__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__InternalM__subje__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__Semester__studen__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="DepartmentPortalModel.FK__session__sem_id__07C12930" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

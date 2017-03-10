@@ -1,0 +1,960 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DepartmentPortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DailyTT">
+          <Key>
+            <PropertyRef Name="tt_Id" />
+          </Key>
+          <Property Name="tt_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sem" Type="int" />
+          <Property Name="branch" Type="nchar" MaxLength="2" />
+          <Property Name="class" Type="char" MaxLength="1" />
+          <Property Name="s1_dur" Type="varchar" MaxLength="50" />
+          <Property Name="s2_dur" Type="varchar" MaxLength="50" />
+          <Property Name="s3_dur" Type="varchar" MaxLength="50" />
+          <Property Name="s4_dur" Type="varchar" MaxLength="50" />
+          <Property Name="s5_dur" Type="varchar" MaxLength="50" />
+          <Property Name="s6_dur" Type="varchar" MaxLength="50" />
+          <Property Name="s7_dur" Type="varchar" MaxLength="50" />
+          <Property Name="s1_type" Type="nchar" MaxLength="10" />
+          <Property Name="s2_type" Type="nchar" MaxLength="10" />
+          <Property Name="s3_type" Type="nchar" MaxLength="10" />
+          <Property Name="s4_type" Type="nchar" MaxLength="10" />
+          <Property Name="s5_type" Type="nchar" MaxLength="10" />
+          <Property Name="s6_type" Type="nchar" MaxLength="10" />
+          <Property Name="s7_type" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="branch" Type="varchar" MaxLength="50" />
+          <Property Name="sem" Type="int" />
+        </EntityType>
+        <EntityType Name="ExternalMarks">
+          <Key>
+            <PropertyRef Name="marks_id" />
+          </Key>
+          <Property Name="marks_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sem_id" Type="int" />
+          <Property Name="subject_id" Type="int" />
+          <Property Name="marks" Type="int" />
+          <Property Name="pract_marks" Type="int" />
+          <Property Name="rem_1" Type="int" />
+          <Property Name="rem_2" Type="nchar" MaxLength="10" />
+          <Property Name="grade" Type="nchar" MaxLength="2" />
+          <Property Name="status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="faculty_id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="faculty_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="faculty_name" Type="varchar" MaxLength="80" />
+          <Property Name="user_type" Type="char" MaxLength="1" />
+          <Property Name="branch" Type="nchar" MaxLength="2" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="birthdate" Type="date" />
+          <Property Name="email_id" Type="varchar" MaxLength="50" />
+          <Property Name="contact_no" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="add1" Type="varchar" MaxLength="50" />
+          <Property Name="add2" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="pincode" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="sec_ques_1" Type="varchar" MaxLength="100" />
+          <Property Name="sec_ans_1" Type="varchar" MaxLength="100" />
+          <Property Name="sec_ques_2" Type="varchar" MaxLength="100" />
+          <Property Name="sec_ans_2" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="InternalMarks">
+          <Key>
+            <PropertyRef Name="marks_id" />
+          </Key>
+          <Property Name="marks_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject_id" Type="int" />
+          <Property Name="session_id" Type="int" />
+          <Property Name="marks" Type="int" />
+        </EntityType>
+        <EntityType Name="lab_tt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tt_id" Type="int" />
+          <Property Name="day" Type="nchar" MaxLength="10" />
+          <Property Name="s1" Type="nchar" MaxLength="10" />
+          <Property Name="f1" Type="nchar" MaxLength="10" />
+          <Property Name="b1" Type="nchar" MaxLength="10" />
+          <Property Name="s2" Type="nchar" MaxLength="10" />
+          <Property Name="f2" Type="nchar" MaxLength="10" />
+          <Property Name="b2" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="lecTT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tt_id" Type="int" />
+          <Property Name="day" Type="nchar" MaxLength="10" />
+          <Property Name="s1" Type="nchar" MaxLength="10" />
+          <Property Name="s2" Type="nchar" MaxLength="10" />
+          <Property Name="s3" Type="nchar" MaxLength="10" />
+          <Property Name="s4" Type="nchar" MaxLength="10" />
+          <Property Name="s5" Type="nchar" MaxLength="10" />
+          <Property Name="s6" Type="nchar" MaxLength="10" />
+          <Property Name="s7" Type="nchar" MaxLength="10" />
+          <Property Name="f1" Type="nchar" MaxLength="10" />
+          <Property Name="f2" Type="nchar" MaxLength="10" />
+          <Property Name="f3" Type="nchar" MaxLength="10" />
+          <Property Name="f4" Type="nchar" MaxLength="10" />
+          <Property Name="f5" Type="nchar" MaxLength="10" />
+          <Property Name="f6" Type="nchar" MaxLength="10" />
+          <Property Name="f7" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="sem_id" />
+          </Key>
+          <Property Name="sem_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_id" Type="varchar" MaxLength="10" />
+          <Property Name="sem" Type="int" />
+          <Property Name="roll_no" Type="int" />
+          <Property Name="attempt" Type="int" />
+          <Property Name="class" Type="char" MaxLength="1" />
+          <Property Name="batch" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="session">
+          <Key>
+            <PropertyRef Name="session_id" />
+          </Key>
+          <Property Name="session_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sem_id" Type="int" />
+          <Property Name="session_type" Type="char" MaxLength="1" />
+          <Property Name="attendance" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="full_name" Type="varchar" MaxLength="80" />
+          <Property Name="branch" Type="nchar" MaxLength="2" />
+          <Property Name="batch" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="current_sem" Type="int" />
+          <Property Name="seat" Type="nchar" MaxLength="3" />
+          <Property Name="yoc" Type="numeric" Precision="4" Scale="0" />
+          <Property Name="birthdate" Type="date" />
+          <Property Name="email_id" Type="varchar" MaxLength="10" />
+          <Property Name="contact_no" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="add1" Type="varchar" MaxLength="50" />
+          <Property Name="add2" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="pincode" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="sec_ques_1" Type="varchar" MaxLength="100" />
+          <Property Name="sec_ans_1" Type="varchar" MaxLength="100" />
+          <Property Name="sec_ques_2" Type="varchar" MaxLength="100" />
+          <Property Name="sec_ans_2" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="subject_id" />
+          </Key>
+          <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject_name" Type="varchar" MaxLength="10" />
+          <Property Name="subject_description" Type="varchar" MaxLength="50" />
+          <Property Name="subject_credit" Type="numeric" Precision="2" Scale="1" />
+          <Property Name="allotted_sem" Type="int" />
+          <Property Name="course" Type="nchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="TimeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sem" Type="int" />
+          <Property Name="branch" Type="nchar" MaxLength="2" />
+          <Property Name="class" Type="char" MaxLength="1" />
+          <Property Name="day" Type="nchar" MaxLength="10" />
+          <Property Name="l1" Type="nchar" MaxLength="10" />
+          <Property Name="l2" Type="nchar" MaxLength="10" />
+          <Property Name="l3" Type="nchar" MaxLength="10" />
+          <Property Name="l4" Type="nchar" MaxLength="10" />
+          <Property Name="lab" Type="nchar" MaxLength="10" />
+          <Property Name="f1" Type="nchar" MaxLength="10" />
+          <Property Name="f2" Type="nchar" MaxLength="10" />
+          <Property Name="f3" Type="nchar" MaxLength="10" />
+          <Property Name="f4" Type="nchar" MaxLength="10" />
+          <Property Name="f_lab" Type="nchar" MaxLength="10" />
+          <Property Name="start_time" Type="time" Precision="7" />
+          <Property Name="sb_time" Type="time" Precision="7" />
+          <Property Name="sb_dur" Type="int" />
+          <Property Name="lb_time" Type="time" Precision="7" />
+          <Property Name="lb_dur" Type="int" />
+          <Property Name="labpos" Type="int" />
+        </EntityType>
+        <Association Name="FK__ExternalM__sem_i__08B54D69">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="ExternalMarks" Type="Self.ExternalMarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="sem_id" />
+            </Principal>
+            <Dependent Role="ExternalMarks">
+              <PropertyRef Name="sem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExternalM__subje__45F365D3">
+          <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
+          <End Role="ExternalMarks" Type="Self.ExternalMarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="subject_id" />
+            </Principal>
+            <Dependent Role="ExternalMarks">
+              <PropertyRef Name="subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InternalM__sessi__3E52440B">
+          <End Role="session" Type="Self.session" Multiplicity="0..1" />
+          <End Role="InternalMarks" Type="Self.InternalMarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="session">
+              <PropertyRef Name="session_id" />
+            </Principal>
+            <Dependent Role="InternalMarks">
+              <PropertyRef Name="session_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InternalM__subje__3F466844">
+          <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
+          <End Role="InternalMarks" Type="Self.InternalMarks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="subject_id" />
+            </Principal>
+            <Dependent Role="InternalMarks">
+              <PropertyRef Name="subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__lab_tt__tt_id__18EBB532">
+          <End Role="DailyTT" Type="Self.DailyTT" Multiplicity="0..1" />
+          <End Role="lab_tt" Type="Self.lab_tt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyTT">
+              <PropertyRef Name="tt_Id" />
+            </Principal>
+            <Dependent Role="lab_tt">
+              <PropertyRef Name="tt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__lecTT__tt_id__19DFD96B">
+          <End Role="DailyTT" Type="Self.DailyTT" Multiplicity="0..1" />
+          <End Role="lecTT" Type="Self.lecTT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyTT">
+              <PropertyRef Name="tt_Id" />
+            </Principal>
+            <Dependent Role="lecTT">
+              <PropertyRef Name="tt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester__studen__09A971A2">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Semester" Type="Self.Semester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="Semester">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__session__sem_id__07C12930">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="session" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="sem_id" />
+            </Principal>
+            <Dependent Role="session">
+              <PropertyRef Name="sem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DepartmentPortalModelStoreContainer">
+          <EntitySet Name="DailyTT" EntityType="Self.DailyTT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExternalMarks" EntityType="Self.ExternalMarks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternalMarks" EntityType="Self.InternalMarks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lab_tt" EntityType="Self.lab_tt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lecTT" EntityType="Self.lecTT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="session" EntityType="Self.session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subject" EntityType="Self.subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeTable" EntityType="Self.TimeTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ExternalM__sem_i__08B54D69" Association="Self.FK__ExternalM__sem_i__08B54D69">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="ExternalMarks" EntitySet="ExternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExternalM__subje__45F365D3" Association="Self.FK__ExternalM__subje__45F365D3">
+            <End Role="subject" EntitySet="subject" />
+            <End Role="ExternalMarks" EntitySet="ExternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InternalM__sessi__3E52440B" Association="Self.FK__InternalM__sessi__3E52440B">
+            <End Role="session" EntitySet="session" />
+            <End Role="InternalMarks" EntitySet="InternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InternalM__subje__3F466844" Association="Self.FK__InternalM__subje__3F466844">
+            <End Role="subject" EntitySet="subject" />
+            <End Role="InternalMarks" EntitySet="InternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__lab_tt__tt_id__18EBB532" Association="Self.FK__lab_tt__tt_id__18EBB532">
+            <End Role="DailyTT" EntitySet="DailyTT" />
+            <End Role="lab_tt" EntitySet="lab_tt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__lecTT__tt_id__19DFD96B" Association="Self.FK__lecTT__tt_id__19DFD96B">
+            <End Role="DailyTT" EntitySet="DailyTT" />
+            <End Role="lecTT" EntitySet="lecTT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester__studen__09A971A2" Association="Self.FK__Semester__studen__09A971A2">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Semester" EntitySet="Semester" />
+          </AssociationSet>
+          <AssociationSet Name="FK__session__sem_id__07C12930" Association="Self.FK__session__sem_id__07C12930">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="session" EntitySet="session" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DepartmentPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DailyTT">
+          <Key>
+            <PropertyRef Name="tt_Id" />
+          </Key>
+          <Property Name="tt_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sem" Type="Int32" />
+          <Property Name="branch" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="class" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="s1_dur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s2_dur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s3_dur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s4_dur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s5_dur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s6_dur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s7_dur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s1_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s2_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s3_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s4_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s5_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s6_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s7_type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="lab_tt" Relationship="Self.FK__lab_tt__tt_id__18EBB532" FromRole="DailyTT" ToRole="lab_tt" />
+          <NavigationProperty Name="lecTTs" Relationship="Self.FK__lecTT__tt_id__19DFD96B" FromRole="DailyTT" ToRole="lecTT" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sem" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ExternalMark">
+          <Key>
+            <PropertyRef Name="marks_id" />
+          </Key>
+          <Property Name="marks_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sem_id" Type="Int32" />
+          <Property Name="subject_id" Type="Int32" />
+          <Property Name="marks" Type="Int32" />
+          <Property Name="pract_marks" Type="Int32" />
+          <Property Name="rem_1" Type="Int32" />
+          <Property Name="rem_2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="grade" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK__ExternalM__sem_i__08B54D69" FromRole="ExternalMarks" ToRole="Semester" />
+          <NavigationProperty Name="subject" Relationship="Self.FK__ExternalM__subje__45F365D3" FromRole="ExternalMarks" ToRole="subject" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="faculty_id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="faculty_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="faculty_name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="user_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="branch" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="birthdate" Type="DateTime" Precision="0" />
+          <Property Name="email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact_no" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="add1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="add2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pincode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="sec_ques_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sec_ans_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sec_ques_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sec_ans_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InternalMark">
+          <Key>
+            <PropertyRef Name="marks_id" />
+          </Key>
+          <Property Name="marks_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject_id" Type="Int32" />
+          <Property Name="session_id" Type="Int32" />
+          <Property Name="marks" Type="Int32" />
+          <NavigationProperty Name="session" Relationship="Self.FK__InternalM__sessi__3E52440B" FromRole="InternalMarks" ToRole="session" />
+          <NavigationProperty Name="subject" Relationship="Self.FK__InternalM__subje__3F466844" FromRole="InternalMarks" ToRole="subject" />
+        </EntityType>
+        <EntityType Name="lab_tt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tt_id" Type="Int32" />
+          <Property Name="day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="b1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="b2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="DailyTT" Relationship="Self.FK__lab_tt__tt_id__18EBB532" FromRole="lab_tt" ToRole="DailyTT" />
+        </EntityType>
+        <EntityType Name="lecTT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tt_id" Type="Int32" />
+          <Property Name="day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s6" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="s7" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f6" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f7" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="DailyTT" Relationship="Self.FK__lecTT__tt_id__19DFD96B" FromRole="lecTT" ToRole="DailyTT" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="sem_id" />
+          </Key>
+          <Property Name="sem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="sem" Type="Int32" />
+          <Property Name="roll_no" Type="Int32" />
+          <Property Name="attempt" Type="Int32" />
+          <Property Name="class" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="batch" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ExternalMarks" Relationship="Self.FK__ExternalM__sem_i__08B54D69" FromRole="Semester" ToRole="ExternalMarks" />
+          <NavigationProperty Name="Student" Relationship="Self.FK__Semester__studen__09A971A2" FromRole="Semester" ToRole="Student" />
+          <NavigationProperty Name="sessions" Relationship="Self.FK__session__sem_id__07C12930" FromRole="Semester" ToRole="session" />
+        </EntityType>
+        <EntityType Name="session">
+          <Key>
+            <PropertyRef Name="session_id" />
+          </Key>
+          <Property Name="session_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sem_id" Type="Int32" />
+          <Property Name="session_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="attendance" Type="Decimal" Precision="4" Scale="2" />
+          <NavigationProperty Name="InternalMarks" Relationship="Self.FK__InternalM__sessi__3E52440B" FromRole="session" ToRole="InternalMarks" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK__session__sem_id__07C12930" FromRole="session" ToRole="Semester" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="full_name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="branch" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="batch" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="current_sem" Type="Int32" />
+          <Property Name="seat" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="yoc" Type="Decimal" Precision="4" Scale="0" />
+          <Property Name="birthdate" Type="DateTime" Precision="0" />
+          <Property Name="email_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="contact_no" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="add1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="add2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pincode" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sec_ques_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sec_ans_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sec_ques_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sec_ans_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Semesters" Relationship="Self.FK__Semester__studen__09A971A2" FromRole="Student" ToRole="Semester" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="subject_id" />
+          </Key>
+          <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="subject_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subject_credit" Type="Decimal" Precision="2" Scale="1" />
+          <Property Name="allotted_sem" Type="Int32" />
+          <Property Name="course" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ExternalMarks" Relationship="Self.FK__ExternalM__subje__45F365D3" FromRole="subject" ToRole="ExternalMarks" />
+          <NavigationProperty Name="InternalMarks" Relationship="Self.FK__InternalM__subje__3F466844" FromRole="subject" ToRole="InternalMarks" />
+        </EntityType>
+        <EntityType Name="TimeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sem" Type="Int32" />
+          <Property Name="branch" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="class" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="l1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="l2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="l3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="l4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="lab" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="f_lab" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="start_time" Type="Time" Precision="7" />
+          <Property Name="sb_time" Type="Time" Precision="7" />
+          <Property Name="sb_dur" Type="Int32" />
+          <Property Name="lb_time" Type="Time" Precision="7" />
+          <Property Name="lb_dur" Type="Int32" />
+          <Property Name="labpos" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__lab_tt__tt_id__18EBB532">
+          <End Role="DailyTT" Type="Self.DailyTT" Multiplicity="0..1" />
+          <End Role="lab_tt" Type="Self.lab_tt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyTT">
+              <PropertyRef Name="tt_Id" />
+            </Principal>
+            <Dependent Role="lab_tt">
+              <PropertyRef Name="tt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__lecTT__tt_id__19DFD96B">
+          <End Role="DailyTT" Type="Self.DailyTT" Multiplicity="0..1" />
+          <End Role="lecTT" Type="Self.lecTT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyTT">
+              <PropertyRef Name="tt_Id" />
+            </Principal>
+            <Dependent Role="lecTT">
+              <PropertyRef Name="tt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExternalM__sem_i__08B54D69">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="ExternalMarks" Type="Self.ExternalMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="sem_id" />
+            </Principal>
+            <Dependent Role="ExternalMarks">
+              <PropertyRef Name="sem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExternalM__subje__45F365D3">
+          <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
+          <End Role="ExternalMarks" Type="Self.ExternalMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="subject_id" />
+            </Principal>
+            <Dependent Role="ExternalMarks">
+              <PropertyRef Name="subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InternalM__sessi__3E52440B">
+          <End Role="session" Type="Self.session" Multiplicity="0..1" />
+          <End Role="InternalMarks" Type="Self.InternalMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="session">
+              <PropertyRef Name="session_id" />
+            </Principal>
+            <Dependent Role="InternalMarks">
+              <PropertyRef Name="session_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InternalM__subje__3F466844">
+          <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
+          <End Role="InternalMarks" Type="Self.InternalMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="subject_id" />
+            </Principal>
+            <Dependent Role="InternalMarks">
+              <PropertyRef Name="subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Semester__studen__09A971A2">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Semester" Type="Self.Semester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="Semester">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__session__sem_id__07C12930">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="session" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="sem_id" />
+            </Principal>
+            <Dependent Role="session">
+              <PropertyRef Name="sem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DepartmentPortalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DailyTTs" EntityType="Self.DailyTT" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="ExternalMarks" EntityType="Self.ExternalMark" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+          <EntitySet Name="InternalMarks" EntityType="Self.InternalMark" />
+          <EntitySet Name="lab_tt" EntityType="Self.lab_tt" />
+          <EntitySet Name="lecTTs" EntityType="Self.lecTT" />
+          <EntitySet Name="Semesters" EntityType="Self.Semester" />
+          <EntitySet Name="sessions" EntityType="Self.session" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="subjects" EntityType="Self.subject" />
+          <EntitySet Name="TimeTables" EntityType="Self.TimeTable" />
+          <AssociationSet Name="FK__lab_tt__tt_id__18EBB532" Association="Self.FK__lab_tt__tt_id__18EBB532">
+            <End Role="DailyTT" EntitySet="DailyTTs" />
+            <End Role="lab_tt" EntitySet="lab_tt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__lecTT__tt_id__19DFD96B" Association="Self.FK__lecTT__tt_id__19DFD96B">
+            <End Role="DailyTT" EntitySet="DailyTTs" />
+            <End Role="lecTT" EntitySet="lecTTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExternalM__sem_i__08B54D69" Association="Self.FK__ExternalM__sem_i__08B54D69">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="ExternalMarks" EntitySet="ExternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExternalM__subje__45F365D3" Association="Self.FK__ExternalM__subje__45F365D3">
+            <End Role="subject" EntitySet="subjects" />
+            <End Role="ExternalMarks" EntitySet="ExternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InternalM__sessi__3E52440B" Association="Self.FK__InternalM__sessi__3E52440B">
+            <End Role="session" EntitySet="sessions" />
+            <End Role="InternalMarks" EntitySet="InternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InternalM__subje__3F466844" Association="Self.FK__InternalM__subje__3F466844">
+            <End Role="subject" EntitySet="subjects" />
+            <End Role="InternalMarks" EntitySet="InternalMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Semester__studen__09A971A2" Association="Self.FK__Semester__studen__09A971A2">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Semester" EntitySet="Semesters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__session__sem_id__07C12930" Association="Self.FK__session__sem_id__07C12930">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="session" EntitySet="sessions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DepartmentPortalModelStoreContainer" CdmEntityContainer="DepartmentPortalEntities">
+          <EntitySetMapping Name="DailyTTs">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.DailyTT">
+              <MappingFragment StoreEntitySet="DailyTT">
+                <ScalarProperty Name="tt_Id" ColumnName="tt_Id" />
+                <ScalarProperty Name="sem" ColumnName="sem" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="s1_dur" ColumnName="s1_dur" />
+                <ScalarProperty Name="s2_dur" ColumnName="s2_dur" />
+                <ScalarProperty Name="s3_dur" ColumnName="s3_dur" />
+                <ScalarProperty Name="s4_dur" ColumnName="s4_dur" />
+                <ScalarProperty Name="s5_dur" ColumnName="s5_dur" />
+                <ScalarProperty Name="s6_dur" ColumnName="s6_dur" />
+                <ScalarProperty Name="s7_dur" ColumnName="s7_dur" />
+                <ScalarProperty Name="s1_type" ColumnName="s1_type" />
+                <ScalarProperty Name="s2_type" ColumnName="s2_type" />
+                <ScalarProperty Name="s3_type" ColumnName="s3_type" />
+                <ScalarProperty Name="s4_type" ColumnName="s4_type" />
+                <ScalarProperty Name="s5_type" ColumnName="s5_type" />
+                <ScalarProperty Name="s6_type" ColumnName="s6_type" />
+                <ScalarProperty Name="s7_type" ColumnName="s7_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="sem" ColumnName="sem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExternalMarks">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.ExternalMark">
+              <MappingFragment StoreEntitySet="ExternalMarks">
+                <ScalarProperty Name="marks_id" ColumnName="marks_id" />
+                <ScalarProperty Name="sem_id" ColumnName="sem_id" />
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="marks" ColumnName="marks" />
+                <ScalarProperty Name="pract_marks" ColumnName="pract_marks" />
+                <ScalarProperty Name="rem_1" ColumnName="rem_1" />
+                <ScalarProperty Name="rem_2" ColumnName="rem_2" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="faculty_name" ColumnName="faculty_name" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="contact_no" ColumnName="contact_no" />
+                <ScalarProperty Name="add1" ColumnName="add1" />
+                <ScalarProperty Name="add2" ColumnName="add2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="sec_ques_1" ColumnName="sec_ques_1" />
+                <ScalarProperty Name="sec_ans_1" ColumnName="sec_ans_1" />
+                <ScalarProperty Name="sec_ques_2" ColumnName="sec_ques_2" />
+                <ScalarProperty Name="sec_ans_2" ColumnName="sec_ans_2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternalMarks">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.InternalMark">
+              <MappingFragment StoreEntitySet="InternalMarks">
+                <ScalarProperty Name="marks_id" ColumnName="marks_id" />
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="session_id" ColumnName="session_id" />
+                <ScalarProperty Name="marks" ColumnName="marks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lab_tt">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.lab_tt">
+              <MappingFragment StoreEntitySet="lab_tt">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="tt_id" ColumnName="tt_id" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="s1" ColumnName="s1" />
+                <ScalarProperty Name="f1" ColumnName="f1" />
+                <ScalarProperty Name="b1" ColumnName="b1" />
+                <ScalarProperty Name="s2" ColumnName="s2" />
+                <ScalarProperty Name="f2" ColumnName="f2" />
+                <ScalarProperty Name="b2" ColumnName="b2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lecTTs">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.lecTT">
+              <MappingFragment StoreEntitySet="lecTT">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="tt_id" ColumnName="tt_id" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="s1" ColumnName="s1" />
+                <ScalarProperty Name="s2" ColumnName="s2" />
+                <ScalarProperty Name="s3" ColumnName="s3" />
+                <ScalarProperty Name="s4" ColumnName="s4" />
+                <ScalarProperty Name="s5" ColumnName="s5" />
+                <ScalarProperty Name="s6" ColumnName="s6" />
+                <ScalarProperty Name="s7" ColumnName="s7" />
+                <ScalarProperty Name="f1" ColumnName="f1" />
+                <ScalarProperty Name="f2" ColumnName="f2" />
+                <ScalarProperty Name="f3" ColumnName="f3" />
+                <ScalarProperty Name="f4" ColumnName="f4" />
+                <ScalarProperty Name="f5" ColumnName="f5" />
+                <ScalarProperty Name="f6" ColumnName="f6" />
+                <ScalarProperty Name="f7" ColumnName="f7" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semesters">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.Semester">
+              <MappingFragment StoreEntitySet="Semester">
+                <ScalarProperty Name="sem_id" ColumnName="sem_id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="sem" ColumnName="sem" />
+                <ScalarProperty Name="roll_no" ColumnName="roll_no" />
+                <ScalarProperty Name="attempt" ColumnName="attempt" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sessions">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.session">
+              <MappingFragment StoreEntitySet="session">
+                <ScalarProperty Name="session_id" ColumnName="session_id" />
+                <ScalarProperty Name="sem_id" ColumnName="sem_id" />
+                <ScalarProperty Name="session_type" ColumnName="session_type" />
+                <ScalarProperty Name="attendance" ColumnName="attendance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+                <ScalarProperty Name="current_sem" ColumnName="current_sem" />
+                <ScalarProperty Name="seat" ColumnName="seat" />
+                <ScalarProperty Name="yoc" ColumnName="yoc" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="contact_no" ColumnName="contact_no" />
+                <ScalarProperty Name="add1" ColumnName="add1" />
+                <ScalarProperty Name="add2" ColumnName="add2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="sec_ques_1" ColumnName="sec_ques_1" />
+                <ScalarProperty Name="sec_ans_1" ColumnName="sec_ans_1" />
+                <ScalarProperty Name="sec_ques_2" ColumnName="sec_ques_2" />
+                <ScalarProperty Name="sec_ans_2" ColumnName="sec_ans_2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subjects">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.subject">
+              <MappingFragment StoreEntitySet="subject">
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+                <ScalarProperty Name="subject_description" ColumnName="subject_description" />
+                <ScalarProperty Name="subject_credit" ColumnName="subject_credit" />
+                <ScalarProperty Name="allotted_sem" ColumnName="allotted_sem" />
+                <ScalarProperty Name="course" ColumnName="course" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeTables">
+            <EntityTypeMapping TypeName="DepartmentPortalModel.TimeTable">
+              <MappingFragment StoreEntitySet="TimeTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sem" ColumnName="sem" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="l1" ColumnName="l1" />
+                <ScalarProperty Name="l2" ColumnName="l2" />
+                <ScalarProperty Name="l3" ColumnName="l3" />
+                <ScalarProperty Name="l4" ColumnName="l4" />
+                <ScalarProperty Name="lab" ColumnName="lab" />
+                <ScalarProperty Name="f1" ColumnName="f1" />
+                <ScalarProperty Name="f2" ColumnName="f2" />
+                <ScalarProperty Name="f3" ColumnName="f3" />
+                <ScalarProperty Name="f4" ColumnName="f4" />
+                <ScalarProperty Name="f_lab" ColumnName="f_lab" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="sb_time" ColumnName="sb_time" />
+                <ScalarProperty Name="sb_dur" ColumnName="sb_dur" />
+                <ScalarProperty Name="lb_time" ColumnName="lb_time" />
+                <ScalarProperty Name="lb_dur" ColumnName="lb_dur" />
+                <ScalarProperty Name="labpos" ColumnName="labpos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -5,27 +5,17 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BotDetect.Web.UI;
-using System.Data;
-using System.Data.Sql;
-using System.Configuration;
-using System.Data.SqlClient;
+
 
 namespace DepartmentPortal
 {
     public partial class Default : System.Web.UI.Page
     {
         bool idflag = false;
-        string mycs;
-        SqlConnection conn;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                mycs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\lenovo\Source\Repos\DepartmentPortal\DepartmentPortal\DepartmentPortal\App_Data\DepartmentPortal.mdf;Integrated Security=True";
-                conn = new SqlConnection(mycs);
-            }
-            catch(Exception ex) { }
-
+            
             if (!this.IsPostBack)
             {
                 idflag = false;
@@ -56,73 +46,61 @@ namespace DepartmentPortal
                     {
                         try
                         {
-                            string sql = string.Empty;
-                            SqlCommand cmd;
-                            SqlDataReader rdr;
-                            if (idflag == false)
+                            using (DepartmentPortalDataContext db = new DepartmentPortalDataContext())
                             {
-                                sql = "select student_id, password, full_name from student where student_id=@id and password=@pass";
-                                cmd = new SqlCommand(sql, conn);
-                                cmd.Parameters.AddWithValue("@id", txtid.Text);
-                                cmd.Parameters.AddWithValue("@pass", txtpass.Text);
-                                conn.Open();
-                                rdr = cmd.ExecuteReader();
-                                while (rdr.Read())
+                                if (!idflag)
                                 {
-                                    string id = rdr["student_id"].ToString();
-                                    string pass = rdr["password"].ToString();
-                                    if (id == txtid.Text && pass == txtpass.Text)
+                                    var q = from i in db.Students
+                                            where i.student_id == txtid.Text && i.password == txtpass.Text
+                                            select i;
+
+                                    if (q.Any())
                                     {
-                                        Session["id"] = id;
-                                        Session["username"] = rdr["full_name"].ToString();
-                                        Response.Redirect("studenthome.aspx");
+                                        foreach (var i in q)
+                                        {
+                                            Session["id"] = i.student_id;
+                                            Session["username"] = i.full_name;
+                                            Session["sem"] = i.current_sem;
+                                            Session["branch"] = i.branch;
+                                            Response.Redirect("studenthome.aspx");
+                                        }
                                     }
                                     else
                                     {
                                         lblerror.Text = "Incorrect Credentials. Please try again.";
                                     }
-                                    break;
+
                                 }
-                                rdr.Close();
-                            }
-                            else
-                            {
-                                sql = "select faculty_id, password, user_type  from faculty where faculty_id=@id and password=@pass";
-                                cmd = new SqlCommand(sql, conn);
-                                cmd.Parameters.AddWithValue("@id", txtid.Text);
-                                cmd.Parameters.AddWithValue("@pass", txtpass.Text);
-                                conn.Open();
-                                rdr = cmd.ExecuteReader();
-                                while (rdr.Read())
+                                else
                                 {
-                                    string id = rdr["faculty_id"].ToString();
-                                    string pass = rdr["password"].ToString();
-                                    string type = rdr["user_type"].ToString();
-                                    if (id == txtid.Text && pass == txtpass.Text)
+                                    var q = from i in db.Faculties
+                                            where i.faculty_id == txtid.Text && i.password == txtpass.Text
+                                            select i;
+
+                                    if (q.Any())
                                     {
-                                        Session["id"] = id;
-                                        Session["username"] = rdr["full_name"].ToString();
-                                        Session["type"] = type;
-                                        
-                                        Response.Redirect("facultyhome.aspx");
+                                        foreach (var i in q)
+                                        {
+                                            Session["id"] = i.faculty_id;
+                                            Session["username"] = i.faculty_name;
+                                            Session["type"] = i.user_type;
+
+                                            Response.Redirect("facultyhome.aspx");
+                                        }
                                     }
                                     else
                                     {
                                         lblerror.Text = "Incorrect Credentials. Please try again.";
                                     }
-                                    break;
                                 }
-                                rdr.Close();
                             }
+                            
                         }
                         catch (Exception ex)
                         {
                             lblerror.Text = "Exception";
                         }
-                        finally
-                        {
-                            conn.Close();
-                        }
+                        
                     }
                 }
             }
