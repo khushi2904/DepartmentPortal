@@ -6,11 +6,15 @@
         <fieldset>
             <legend><h2>Home</h2></legend>
             
-            <div style="border:solid; padding:1.5em;">
+            <div>
 
                 <asp:Label ID="lblday" runat="server" Font-Bold="True" Font-Size="X-Large" /><br />
-                <asp:Timer ID="Timer1" OnTick="Timer1_Tick" runat="server"></asp:Timer>
-                <asp:Label ID="lbltimer" runat="server" Font-Bold="True" Font-Size="Large" />
+                
+                <asp:Label ID="Label1" runat="server" Font-Bold="true" Text="Ongoing: " Font-Size="Large" />
+                <asp:Label ID="lblcurlec" runat="server" Font-Bold="true" Font-Size="Large" />
+                &nbsp;&nbsp;&nbsp;<asp:LinkButton ID="lbtnskip" OnClick="LinkButton1_Click" runat="server">Skip</asp:LinkButton><br />
+                <asp:Label ID="lblskipped" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblskippederror" runat="server" ></asp:Label>
             </div>
             <br /><br />
             <div class="text-center">

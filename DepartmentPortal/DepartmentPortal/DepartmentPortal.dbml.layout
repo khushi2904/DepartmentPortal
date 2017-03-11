@@ -1,127 +1,140 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 14.625" name="DepartmentPortal">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.375, 17.5" name="DepartmentPortal">
   <DataContextMoniker Name="/DepartmentPortalDataContext" />
   <nestedChildShapes>
-    <classShape Id="9af56af8-f5dc-407d-9436-625831d8693c" absoluteBounds="6.75, 8.875, 2, 4.2708154296874987">
+    <classShape Id="a71f3c90-0c7d-4c91-9ed4-ee5343f53090" absoluteBounds="0.75, 11.75, 2, 4.2708154296874987">
       <DataClassMoniker Name="/DepartmentPortalDataContext/DailyTT" />
       <nestedChildShapes>
-        <elementListCompartment Id="cc7689ab-f884-4024-aa4d-ce24014c774b" absoluteBounds="6.765, 9.335, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="33ba61d4-aaa2-4969-a727-18506e2b33a7" absoluteBounds="0.765, 12.21, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="40900210-17d7-4228-bcab-ac70dac2ddd1" absoluteBounds="0.75, 11.125, 2, 1.9631982421874987">
+    <classShape Id="5ee43c44-409f-46d2-ae26-873a6b87bcec" absoluteBounds="8.75, 2, 2, 1.9631982421875005">
       <DataClassMoniker Name="/DepartmentPortalDataContext/Event" />
       <nestedChildShapes>
-        <elementListCompartment Id="5fd2493f-0e44-43d4-8a8d-cec2ed09d667" absoluteBounds="0.765, 11.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d0104183-af20-4759-a813-111362545815" absoluteBounds="8.765, 2.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="769e1dbb-b3b7-42a4-a6b5-cc848013bd90" absoluteBounds="6.25, 0.75, 2, 2.5401025390625">
+    <classShape Id="24bf7f9f-f015-4dd2-8d3a-c3b6bc9bf789" absoluteBounds="6.25, 3.5, 2, 2.5401025390625005">
       <DataClassMoniker Name="/DepartmentPortalDataContext/ExternalMark" />
       <nestedChildShapes>
-        <elementListCompartment Id="ecff3991-a7f1-462d-abbb-cde7a6ca00de" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bbb0327f-7d16-4b04-aa3f-22f0cdbefb6e" absoluteBounds="6.265, 3.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2e2ae94b-7267-4d6e-99df-0b9cb5c47b00" absoluteBounds="11.75, 2.125, 2, 4.4631168619791666">
+    <classShape Id="a17c5b2c-20fb-4646-a516-4655fd5ef61e" absoluteBounds="6.75, 10, 2, 4.4631168619791666">
       <DataClassMoniker Name="/DepartmentPortalDataContext/Faculty" />
       <nestedChildShapes>
-        <elementListCompartment Id="75d2fa38-c970-43cd-affe-e412cf830ea1" absoluteBounds="11.765, 2.585, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="59ee7149-c74b-4078-a98e-8156ab803b02" absoluteBounds="6.765, 10.46, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="db0536f3-7561-4956-89de-cdaff84d0c6b" absoluteBounds="9, 4.25, 2, 1.5785953776041666">
+    <classShape Id="ff9b47e6-059d-427b-bdb7-a7fb09e079cc" absoluteBounds="9, 7, 2, 1.5785953776041657">
       <DataClassMoniker Name="/DepartmentPortalDataContext/InternalMark" />
       <nestedChildShapes>
-        <elementListCompartment Id="17b8d6e0-6545-4c87-96db-deb6cb452980" absoluteBounds="9.015, 4.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3bd4d909-d699-45a7-bc5d-ccb0a6138e6b" absoluteBounds="9.015, 7.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2bdb4088-a856-4463-8f88-9de79fea3468" absoluteBounds="9.5, 7.625, 2, 1.9631982421874996">
+    <classShape Id="9e165cd6-6ab6-467f-b82e-20b4f053ec22" absoluteBounds="3.5, 10.5, 2, 1.9631982421874987">
       <DataClassMoniker Name="/DepartmentPortalDataContext/lab_tt" />
       <nestedChildShapes>
-        <elementListCompartment Id="cded1cf3-2ffc-4a14-b1a9-ecae946decec" absoluteBounds="9.515, 8.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="849bae8e-03e8-4a59-80eb-c4c0a29249db" absoluteBounds="3.515, 10.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6fd2ee23-4de9-48fd-8083-b61b78ed8ff2" absoluteBounds="9.5, 10.25, 2, 4.0785139973958309">
+    <classShape Id="d63242e7-d7af-4464-abed-f7f2611534bf" absoluteBounds="3.5, 13.125, 2, 4.0785139973958309">
       <DataClassMoniker Name="/DepartmentPortalDataContext/lecTT" />
       <nestedChildShapes>
-        <elementListCompartment Id="e2c95d9e-8e52-442e-b0b8-8a07764d0ed8" absoluteBounds="9.515, 10.71, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="427278d0-3d46-4ac4-ac5f-9080013df463" absoluteBounds="3.515, 13.585, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="368aa7bd-2504-443e-a36a-2cecb00e25e1" absoluteBounds="3.5, 4, 2, 2.1554996744791666">
+    <classShape Id="37df5bec-2340-44f5-a9cc-ad4d27533d33" absoluteBounds="3.5, 6.625, 2, 2.1554996744791657">
       <DataClassMoniker Name="/DepartmentPortalDataContext/Semester" />
       <nestedChildShapes>
-        <elementListCompartment Id="b5a8eda5-a1a0-4d25-ab74-7612100d118b" absoluteBounds="3.515, 4.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="939766cb-ef80-41c4-b180-2b0c4bdb4087" absoluteBounds="3.515, 7.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e006eec3-c268-4768-b6a7-1b5693a117ee" absoluteBounds="6.25, 4.25, 2, 1.5785953776041666">
+    <classShape Id="d60692f2-7789-46ff-8087-3214fc69fe63" absoluteBounds="6.25, 6.875, 2, 1.7708968098958327">
       <DataClassMoniker Name="/DepartmentPortalDataContext/session" />
       <nestedChildShapes>
-        <elementListCompartment Id="908fa51d-59f5-4cc6-9e8c-fd7beb9e2175" absoluteBounds="6.265, 4.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="135c0468-ba53-4903-b25f-1eb10a3e32bf" absoluteBounds="6.265, 7.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2115bb13-b198-4c59-a7eb-b52ace9a4b87" absoluteBounds="0.75, 2.5, 2, 5.0400211588541657">
+    <classShape Id="5097ce34-4afd-4351-b070-3d0bda6d61f6" absoluteBounds="3.5, 4, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DepartmentPortalDataContext/skipped" />
+      <nestedChildShapes>
+        <elementListCompartment Id="881bc23a-ab55-4870-abf6-ee16c8c933df" absoluteBounds="3.515, 4.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3be7085-4467-450d-bbcb-bf39e0f36b6a" absoluteBounds="0.75, 3.875, 2, 5.0400211588541648">
       <DataClassMoniker Name="/DepartmentPortalDataContext/Student" />
       <nestedChildShapes>
-        <elementListCompartment Id="3489d160-38cf-4ee4-80e5-ee18a51cb460" absoluteBounds="0.765, 2.96, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="eb3a295f-5059-4529-bb8a-425cbe531b99" absoluteBounds="0.765, 4.335, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5bf5134f-e3f1-4701-aaad-0d37ba69be47" absoluteBounds="3.5, 7.75, 2, 1.9631982421874987">
+    <classShape Id="7c0a060e-b8c0-4710-8d0a-9a933214d62d" absoluteBounds="3.5, 0.75, 2, 1.9631982421875">
       <DataClassMoniker Name="/DepartmentPortalDataContext/subject" />
       <nestedChildShapes>
-        <elementListCompartment Id="383404f9-59b6-4c96-a47c-b7b76b4c1cd3" absoluteBounds="3.515, 8.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="64c102e7-e1f3-4377-837e-9ebb13f7dc05" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.75 : 9.23159912109375); (9.5 : 9.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 12.1065991210937); (3.5 : 12.1065991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DepartmentPortalDataContext/DailyTT/DailyTT_lab_tt" />
       <nodes>
-        <classShapeMoniker Id="9af56af8-f5dc-407d-9436-625831d8693c" />
-        <classShapeMoniker Id="2bdb4088-a856-4463-8f88-9de79fea3468" />
+        <classShapeMoniker Id="a71f3c90-0c7d-4c91-9ed4-ee5343f53090" />
+        <classShapeMoniker Id="9e165cd6-6ab6-467f-b82e-20b4f053ec22" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 11.6979077148437); (9.5 : 11.6979077148437)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 14.5729077148437); (3.5 : 14.5729077148437)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DepartmentPortalDataContext/DailyTT/DailyTT_lecTT" />
       <nodes>
-        <classShapeMoniker Id="9af56af8-f5dc-407d-9436-625831d8693c" />
-        <classShapeMoniker Id="6fd2ee23-4de9-48fd-8083-b61b78ed8ff2" />
+        <classShapeMoniker Id="a71f3c90-0c7d-4c91-9ed4-ee5343f53090" />
+        <classShapeMoniker Id="d63242e7-d7af-4464-abed-f7f2611534bf" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 4); (4.5 : 2.02005126953125); (6.25 : 2.02005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 6.625); (5.875 : 6.25); (5.875 : 6.4151025390625); (6.25 : 6.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DepartmentPortalDataContext/Semester/Semester_ExternalMark" />
       <nodes>
-        <classShapeMoniker Id="368aa7bd-2504-443e-a36a-2cecb00e25e1" />
-        <classShapeMoniker Id="769e1dbb-b3b7-42a4-a6b5-cc848013bd90" />
+        <classShapeMoniker Id="37df5bec-2340-44f5-a9cc-ad4d27533d33" />
+        <classShapeMoniker Id="24bf7f9f-f015-4dd2-8d3a-c3b6bc9bf789" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 5.03929768880208); (9 : 5.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 7.78929768880208); (9 : 7.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DepartmentPortalDataContext/session/session_InternalMark" />
       <nodes>
-        <classShapeMoniker Id="e006eec3-c268-4768-b6a7-1b5693a117ee" />
-        <classShapeMoniker Id="db0536f3-7561-4956-89de-cdaff84d0c6b" />
+        <classShapeMoniker Id="d60692f2-7789-46ff-8087-3214fc69fe63" />
+        <classShapeMoniker Id="ff9b47e6-059d-427b-bdb7-a7fb09e079cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.03929768880208); (5.85416666666667 : 5.03929768880208 : JumpStart); (6.02083333333333 : 5.03929768880208 : JumpEnd); (6.25 : 5.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 7.76044840494792); (6.25 : 7.76044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DepartmentPortalDataContext/Semester/Semester_session" />
       <nodes>
-        <classShapeMoniker Id="368aa7bd-2504-443e-a36a-2cecb00e25e1" />
-        <classShapeMoniker Id="e006eec3-c268-4768-b6a7-1b5693a117ee" />
+        <classShapeMoniker Id="37df5bec-2340-44f5-a9cc-ad4d27533d33" />
+        <classShapeMoniker Id="d60692f2-7789-46ff-8087-3214fc69fe63" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.07774983723958); (3.5 : 5.07774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 7.70274983723958); (3.5 : 7.70274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DepartmentPortalDataContext/Student/Student_Semester" />
       <nodes>
-        <classShapeMoniker Id="2115bb13-b198-4c59-a7eb-b52ace9a4b87" />
-        <classShapeMoniker Id="368aa7bd-2504-443e-a36a-2cecb00e25e1" />
+        <classShapeMoniker Id="b3be7085-4467-450d-bbcb-bf39e0f36b6a" />
+        <classShapeMoniker Id="37df5bec-2340-44f5-a9cc-ad4d27533d33" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.78020204987981); (5.9375 : 7.34270204987981); (5.9375 : 2.68632890429688); (6.25 : 2.68632890429688)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.98159912109375); (3.5 : 4.98159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DepartmentPortalDataContext/Student/Student_skipped" />
+      <nodes>
+        <classShapeMoniker Id="b3be7085-4467-450d-bbcb-bf39e0f36b6a" />
+        <classShapeMoniker Id="5097ce34-4afd-4351-b070-3d0bda6d61f6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.73159912109375); (7.25 : 1.73159912109375); (7.25 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DepartmentPortalDataContext/subject/subject_ExternalMark" />
       <nodes>
-        <classShapeMoniker Id="5bf5134f-e3f1-4701-aaad-0d37ba69be47" />
-        <classShapeMoniker Id="769e1dbb-b3b7-42a4-a6b5-cc848013bd90" />
+        <classShapeMoniker Id="7c0a060e-b8c0-4710-8d0a-9a933214d62d" />
+        <classShapeMoniker Id="24bf7f9f-f015-4dd2-8d3a-c3b6bc9bf789" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.78322235486779); (6.125 : 7.15822235486779); (6.125 : 6.20359537760417); (8.625 : 6.20359537760417); (9 : 5.82859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 1.20954706054688); (10.90625 : 1.20954706054688); (10.90625 : 7)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DepartmentPortalDataContext/subject/subject_InternalMark" />
       <nodes>
-        <classShapeMoniker Id="5bf5134f-e3f1-4701-aaad-0d37ba69be47" />
-        <classShapeMoniker Id="db0536f3-7561-4956-89de-cdaff84d0c6b" />
+        <classShapeMoniker Id="7c0a060e-b8c0-4710-8d0a-9a933214d62d" />
+        <classShapeMoniker Id="ff9b47e6-059d-427b-bdb7-a7fb09e079cc" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

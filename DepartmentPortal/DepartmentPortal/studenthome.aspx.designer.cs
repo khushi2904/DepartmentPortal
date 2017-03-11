@@ -22,22 +22,49 @@ namespace DepartmentPortal {
         protected global::System.Web.UI.WebControls.Label lblday;
         
         /// <summary>
-        /// Timer1 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.Timer Timer1;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lbltimer control.
+        /// lblcurlec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltimer;
+        protected global::System.Web.UI.WebControls.Label lblcurlec;
+        
+        /// <summary>
+        /// lbtnskip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnskip;
+        
+        /// <summary>
+        /// lblskipped control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblskipped;
+        
+        /// <summary>
+        /// lblskippederror control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblskippederror;
         
         /// <summary>
         /// gvtimetable control.

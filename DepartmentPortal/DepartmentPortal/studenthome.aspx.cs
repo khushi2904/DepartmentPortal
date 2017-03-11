@@ -24,13 +24,15 @@ namespace DepartmentPortal
             else
             {
                 lblday.Text = DateTime.Now.DayOfWeek.ToString() + ", " + DateTime.Now.Date.ToString().Substring(0,9);
-                Timer1.Enabled = true;
-                //Timer1.Interval = 60000;
-
                 sem = Convert.ToInt32(Session["sem"]);
                 branch = Session["branch"].ToString();
                 id = Session["id"].ToString();
 
+                if (!this.IsPostBack)
+                {
+                    lbtnskip.Visible = false;
+                    lblskippederror.Text = "";
+                }
                 try
                 {
                     using (DepartmentPortalDataContext db = new DepartmentPortalDataContext())
@@ -102,20 +104,143 @@ namespace DepartmentPortal
 
                         gvtimetable.DataSource = q2;
                         gvtimetable.DataBind();
+
+                        TimeSpan[] timeslot = new TimeSpan[7];
+                        int z=0;
+                        for(int i = 0; i < timeslot.Length; i++)
+                        {
+                            if (head[i] != "")
+                            {
+                                string s = head[i].Substring(0, head[i].IndexOf('-'));
+                                timeslot[i] = TimeSpan.Parse(s);
+                                z = i;
+                            }
+                        }
+                        TimeSpan endtime = TimeSpan.Parse(head[z].Substring(head[z].IndexOf('-')+1));
+                        TimeSpan now = TimeSpan.Parse("8:30");
+                        //TimeSpan now = TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString());
+                        
+                        var c = (from j in db.DailyTTs
+                                 where j.tt_Id == ttid
+                                 select j).Single();
+
+                        string[] t = { c.s1_type, c.s2_type, c.s3_type, c.s4_type, c.s5_type, c.s6_type, c.s7_type };
+
+                        var d = (from k in db.lecTTs
+                                 where k.tt_id == ttid && k.day == "Monday" //DateTime.Now.DayOfWeek.ToString()
+                                 select k).Single();
+
+
+                        string[] a = {
+                                            d.s1+", "+d.f1,
+                                            d.s2+", "+d.f2,
+                                            d.s3+", "+d.f3,
+                                            d.s4+", "+d.f4,
+                                            d.s5+", "+d.f5,
+                                            d.s6+", "+d.f6,
+                                            d.s7+", "+d.f7
+                                      };
+
+                        var f = from k in db.lab_tts
+                                where k.tt_id == ttid && k.b1==batch && k.day == "Monday" //DateTime.Now.DayOfWeek.ToString()
+                                select new { a = k.s1 + ", " + k.f1 };
+
+                        if (timeslot[0].CompareTo(now) > 0)
+                        {
+                            lblcurlec.Text = "-------------";
+                        }
+                        else if (timeslot[z].CompareTo(now) < 0 && now.CompareTo(endtime) < 0)
+                        {
+                            if (t[z].Contains("l"))
+                                lblcurlec.Text = a[z-1];
+                            else
+                                lblcurlec.Text = f.Single().ToString();
+                            lbtnskip.Visible = true;
+                        }
+                        else if (now.CompareTo(endtime) > 0)
+                        {
+                            lblcurlec.Text = "-------------";
+                        }
+                        else
+                        {
+                            for (int i = 0; i < 6; i++)
+                            {
+                                if(timeslot[i].CompareTo(now)<=0 && timeslot[i + 1].CompareTo(now) > 0)
+                                {
+                                    string pos = t[i];
+
+                                    if (pos.Contains("l"))
+                                    {
+                                       lblcurlec.Text = a[i];                                               
+                                    }
+                                    else
+                                    {
+                                        lblcurlec.Text = f.Single().ToString().Remove(0, 5).Replace('}', ' ');
+                                    }
+                                    lbtnskip.Visible = true;
+                                }
+                            }
+                        }
+
+                        int nl = (from i in db.skippeds
+                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'l'
+                                  select i).Count();
+
+                        int nb = (from i in db.skippeds
+                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'b'
+                                  select i).Count();
+
+                        lblskipped.Text = "You have skipped " + nl + " lectures and " + nb + " labs today.";
                     }
                 }
-                catch(Exception ex) { }
-
-
+                catch(Exception ex)
+                {
+                    lblcurlec.Text = "-------------";
+                }
             }
         }
 
-        protected void Timer1_Tick(object sender, EventArgs e)
+       
+        protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            lbltimer.Text = DateTime.Now.ToString("hh:mm");
+            try
+            {
+                using (DepartmentPortalDataContext db = new DepartmentPortalDataContext())
+                {
+                    var q = from i in db.skippeds
+                            where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.skipped1 == lblcurlec.Text
+                            select i;
+
+                    if (q.Any()) {
+                        lblskippederror.Text = "You have already skipped this slot.";
+                    }
+                    else
+                    {
+                        skipped s = new skipped
+                        {
+                            student_id = id,
+                            sem = sem,
+                            skipdate = DateTime.Now.Date,
+                            skipped1 = lblcurlec.Text
+                        };
+                        db.skippeds.InsertOnSubmit(s);
+                        db.SubmitChanges();
+
+                        int nl = (from i in db.skippeds
+                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'l'
+                                  select i).Count();
+
+                        int nb = (from i in db.skippeds
+                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'b'
+                                  select i).Count();
+
+                        lblskipped.Text = "You have skipped " + nl + " lectures and " + nb + " labs today.";
+                    }
+                }
+            }
+            catch (Exception ex) { }
         }
 
-        
         protected void gvtimetable_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)

@@ -135,8 +135,20 @@
       <Column Name="sem_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="session_type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="attendance" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="est_attendance" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
       <Association Name="session_InternalMark" Member="InternalMarks" ThisKey="session_id" OtherKey="session_id" Type="InternalMark" />
       <Association Name="Semester_session" Member="Semester" ThisKey="sem_id" OtherKey="sem_id" Type="Semester" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.skipped" Member="skippeds">
+    <Type Name="skipped">
+      <Column Name="skip_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="student_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="skipdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="skipped" Member="skipped1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Student_skipped" Member="Student" ThisKey="student_id" OtherKey="student_id" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Student" Member="Students">
@@ -164,6 +176,7 @@
       <Column Name="sec_ques_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sec_ans_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="Student_Semester" Member="Semesters" ThisKey="student_id" OtherKey="student_id" Type="Semester" />
+      <Association Name="Student_skipped" Member="skippeds" ThisKey="student_id" OtherKey="student_id" Type="skipped" />
     </Type>
   </Table>
   <Table Name="dbo.subject" Member="subjects">

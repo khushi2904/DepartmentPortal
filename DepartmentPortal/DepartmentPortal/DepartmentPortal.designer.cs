@@ -57,6 +57,9 @@ namespace DepartmentPortal
     partial void Insertsession(session instance);
     partial void Updatesession(session instance);
     partial void Deletesession(session instance);
+    partial void Insertskipped(skipped instance);
+    partial void Updateskipped(skipped instance);
+    partial void Deleteskipped(skipped instance);
     partial void InsertStudent(Student instance);
     partial void UpdateStudent(Student instance);
     partial void DeleteStudent(Student instance);
@@ -164,6 +167,14 @@ namespace DepartmentPortal
 			get
 			{
 				return this.GetTable<session>();
+			}
+		}
+		
+		public System.Data.Linq.Table<skipped> skippeds
+		{
+			get
+			{
+				return this.GetTable<skipped>();
 			}
 		}
 		
@@ -2965,6 +2976,8 @@ namespace DepartmentPortal
 		
 		private System.Nullable<decimal> _attendance;
 		
+		private System.Nullable<decimal> _est_attendance;
+		
 		private EntitySet<InternalMark> _InternalMarks;
 		
 		private EntityRef<Semester> _Semester;
@@ -2981,6 +2994,8 @@ namespace DepartmentPortal
     partial void Onsession_typeChanged();
     partial void OnattendanceChanging(System.Nullable<decimal> value);
     partial void OnattendanceChanged();
+    partial void Onest_attendanceChanging(System.Nullable<decimal> value);
+    partial void Onest_attendanceChanged();
     #endregion
 		
 		public session()
@@ -3074,6 +3089,26 @@ namespace DepartmentPortal
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_est_attendance", DbType="Decimal(4,2)")]
+		public System.Nullable<decimal> est_attendance
+		{
+			get
+			{
+				return this._est_attendance;
+			}
+			set
+			{
+				if ((this._est_attendance != value))
+				{
+					this.Onest_attendanceChanging(value);
+					this.SendPropertyChanging();
+					this._est_attendance = value;
+					this.SendPropertyChanged("est_attendance");
+					this.Onest_attendanceChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="session_InternalMark", Storage="_InternalMarks", ThisKey="session_id", OtherKey="session_id")]
 		public EntitySet<InternalMark> InternalMarks
 		{
@@ -3154,6 +3189,229 @@ namespace DepartmentPortal
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skipped")]
+	public partial class skipped : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _skip_id;
+		
+		private string _student_id;
+		
+		private System.Nullable<int> _sem;
+		
+		private System.Nullable<System.DateTime> _skipdate;
+		
+		private string _skipped1;
+		
+		private System.Nullable<char> _type;
+		
+		private EntityRef<Student> _Student;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onskip_idChanging(int value);
+    partial void Onskip_idChanged();
+    partial void Onstudent_idChanging(string value);
+    partial void Onstudent_idChanged();
+    partial void OnsemChanging(System.Nullable<int> value);
+    partial void OnsemChanged();
+    partial void OnskipdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnskipdateChanged();
+    partial void Onskipped1Changing(string value);
+    partial void Onskipped1Changed();
+    partial void OntypeChanging(System.Nullable<char> value);
+    partial void OntypeChanged();
+    #endregion
+		
+		public skipped()
+		{
+			this._Student = default(EntityRef<Student>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skip_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int skip_id
+		{
+			get
+			{
+				return this._skip_id;
+			}
+			set
+			{
+				if ((this._skip_id != value))
+				{
+					this.Onskip_idChanging(value);
+					this.SendPropertyChanging();
+					this._skip_id = value;
+					this.SendPropertyChanged("skip_id");
+					this.Onskip_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student_id", DbType="VarChar(10)")]
+		public string student_id
+		{
+			get
+			{
+				return this._student_id;
+			}
+			set
+			{
+				if ((this._student_id != value))
+				{
+					if (this._Student.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onstudent_idChanging(value);
+					this.SendPropertyChanging();
+					this._student_id = value;
+					this.SendPropertyChanged("student_id");
+					this.Onstudent_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sem", DbType="Int")]
+		public System.Nullable<int> sem
+		{
+			get
+			{
+				return this._sem;
+			}
+			set
+			{
+				if ((this._sem != value))
+				{
+					this.OnsemChanging(value);
+					this.SendPropertyChanging();
+					this._sem = value;
+					this.SendPropertyChanged("sem");
+					this.OnsemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skipdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> skipdate
+		{
+			get
+			{
+				return this._skipdate;
+			}
+			set
+			{
+				if ((this._skipdate != value))
+				{
+					this.OnskipdateChanging(value);
+					this.SendPropertyChanging();
+					this._skipdate = value;
+					this.SendPropertyChanged("skipdate");
+					this.OnskipdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="skipped", Storage="_skipped1", DbType="VarChar(50)")]
+		public string skipped1
+		{
+			get
+			{
+				return this._skipped1;
+			}
+			set
+			{
+				if ((this._skipped1 != value))
+				{
+					this.Onskipped1Changing(value);
+					this.SendPropertyChanging();
+					this._skipped1 = value;
+					this.SendPropertyChanged("skipped1");
+					this.Onskipped1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Char(1)")]
+		public System.Nullable<char> type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this.OntypeChanging(value);
+					this.SendPropertyChanging();
+					this._type = value;
+					this.SendPropertyChanged("type");
+					this.OntypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_skipped", Storage="_Student", ThisKey="student_id", OtherKey="student_id", IsForeignKey=true)]
+		public Student Student
+		{
+			get
+			{
+				return this._Student.Entity;
+			}
+			set
+			{
+				Student previousValue = this._Student.Entity;
+				if (((previousValue != value) 
+							|| (this._Student.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Student.Entity = null;
+						previousValue.skippeds.Remove(this);
+					}
+					this._Student.Entity = value;
+					if ((value != null))
+					{
+						value.skippeds.Add(this);
+						this._student_id = value.student_id;
+					}
+					else
+					{
+						this._student_id = default(string);
+					}
+					this.SendPropertyChanged("Student");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Student")]
 	public partial class Student : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3205,6 +3463,8 @@ namespace DepartmentPortal
 		private string _sec_ans_2;
 		
 		private EntitySet<Semester> _Semesters;
+		
+		private EntitySet<skipped> _skippeds;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3259,6 +3519,7 @@ namespace DepartmentPortal
 		public Student()
 		{
 			this._Semesters = new EntitySet<Semester>(new Action<Semester>(this.attach_Semesters), new Action<Semester>(this.detach_Semesters));
+			this._skippeds = new EntitySet<skipped>(new Action<skipped>(this.attach_skippeds), new Action<skipped>(this.detach_skippeds));
 			OnCreated();
 		}
 		
@@ -3715,6 +3976,19 @@ namespace DepartmentPortal
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_skipped", Storage="_skippeds", ThisKey="student_id", OtherKey="student_id")]
+		public EntitySet<skipped> skippeds
+		{
+			get
+			{
+				return this._skippeds;
+			}
+			set
+			{
+				this._skippeds.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3742,6 +4016,18 @@ namespace DepartmentPortal
 		}
 		
 		private void detach_Semesters(Semester entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = null;
+		}
+		
+		private void attach_skippeds(skipped entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = this;
+		}
+		
+		private void detach_skippeds(skipped entity)
 		{
 			this.SendPropertyChanging();
 			entity.Student = null;
