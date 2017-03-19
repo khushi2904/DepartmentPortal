@@ -29,9 +29,6 @@
       <Column Name="event_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="branch" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.ExternalMarks" Member="ExternalMarks">
@@ -115,6 +112,22 @@
       <Association Name="DailyTT_lecTT" Member="DailyTT" ThisKey="tt_id" OtherKey="tt_Id" Type="DailyTT" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.n_lastaccessed" Member="n_lastaccesseds">
+    <Type Name="n_lastaccessed">
+      <Column Name="la_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="student_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="lastaccessed" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Student_n_lastaccessed" Member="Student" ThisKey="student_id" OtherKey="student_id" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.notifications" Member="notifications">
+    <Type Name="notification">
+      <Column Name="notif_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="notifdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="notif" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Semester" Member="Semesters">
     <Type Name="Semester">
       <Column Name="sem_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -175,6 +188,7 @@
       <Column Name="sec_ans_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sec_ques_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sec_ans_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Student_n_lastaccessed" Member="n_lastaccesseds" ThisKey="student_id" OtherKey="student_id" Type="n_lastaccessed" />
       <Association Name="Student_Semester" Member="Semesters" ThisKey="student_id" OtherKey="student_id" Type="Semester" />
       <Association Name="Student_skipped" Member="skippeds" ThisKey="student_id" OtherKey="student_id" Type="skipped" />
     </Type>

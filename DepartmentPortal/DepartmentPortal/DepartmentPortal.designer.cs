@@ -51,6 +51,12 @@ namespace DepartmentPortal
     partial void InsertlecTT(lecTT instance);
     partial void UpdatelecTT(lecTT instance);
     partial void DeletelecTT(lecTT instance);
+    partial void Insertn_lastaccessed(n_lastaccessed instance);
+    partial void Updaten_lastaccessed(n_lastaccessed instance);
+    partial void Deleten_lastaccessed(n_lastaccessed instance);
+    partial void Insertnotification(notification instance);
+    partial void Updatenotification(notification instance);
+    partial void Deletenotification(notification instance);
     partial void InsertSemester(Semester instance);
     partial void UpdateSemester(Semester instance);
     partial void DeleteSemester(Semester instance);
@@ -151,6 +157,22 @@ namespace DepartmentPortal
 			get
 			{
 				return this.GetTable<lecTT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<n_lastaccessed> n_lastaccesseds
+		{
+			get
+			{
+				return this.GetTable<n_lastaccessed>();
+			}
+		}
+		
+		public System.Data.Linq.Table<notification> notifications
+		{
+			get
+			{
+				return this.GetTable<notification>();
 			}
 		}
 		
@@ -733,12 +755,6 @@ namespace DepartmentPortal
 		
 		private string _name;
 		
-		private string _description;
-		
-		private string _branch;
-		
-		private System.Nullable<int> _sem;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -749,12 +765,6 @@ namespace DepartmentPortal
     partial void OndateChanged();
     partial void OnnameChanging(string value);
     partial void OnnameChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OnbranchChanging(string value);
-    partial void OnbranchChanged();
-    partial void OnsemChanging(System.Nullable<int> value);
-    partial void OnsemChanged();
     #endregion
 		
 		public Event()
@@ -818,66 +828,6 @@ namespace DepartmentPortal
 					this._name = value;
 					this.SendPropertyChanged("name");
 					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(100)")]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_branch", DbType="VarChar(50)")]
-		public string branch
-		{
-			get
-			{
-				return this._branch;
-			}
-			set
-			{
-				if ((this._branch != value))
-				{
-					this.OnbranchChanging(value);
-					this.SendPropertyChanging();
-					this._branch = value;
-					this.SendPropertyChanged("branch");
-					this.OnbranchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sem", DbType="Int")]
-		public System.Nullable<int> sem
-		{
-			get
-			{
-				return this._sem;
-			}
-			set
-			{
-				if ((this._sem != value))
-				{
-					this.OnsemChanging(value);
-					this.SendPropertyChanging();
-					this._sem = value;
-					this.SendPropertyChanged("sem");
-					this.OnsemChanged();
 				}
 			}
 		}
@@ -2659,6 +2609,291 @@ namespace DepartmentPortal
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.n_lastaccessed")]
+	public partial class n_lastaccessed : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _la_id;
+		
+		private string _student_id;
+		
+		private System.Nullable<System.DateTime> _lastaccessed;
+		
+		private EntityRef<Student> _Student;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onla_idChanging(int value);
+    partial void Onla_idChanged();
+    partial void Onstudent_idChanging(string value);
+    partial void Onstudent_idChanged();
+    partial void OnlastaccessedChanging(System.Nullable<System.DateTime> value);
+    partial void OnlastaccessedChanged();
+    #endregion
+		
+		public n_lastaccessed()
+		{
+			this._Student = default(EntityRef<Student>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_la_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int la_id
+		{
+			get
+			{
+				return this._la_id;
+			}
+			set
+			{
+				if ((this._la_id != value))
+				{
+					this.Onla_idChanging(value);
+					this.SendPropertyChanging();
+					this._la_id = value;
+					this.SendPropertyChanged("la_id");
+					this.Onla_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student_id", DbType="VarChar(10)")]
+		public string student_id
+		{
+			get
+			{
+				return this._student_id;
+			}
+			set
+			{
+				if ((this._student_id != value))
+				{
+					if (this._Student.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onstudent_idChanging(value);
+					this.SendPropertyChanging();
+					this._student_id = value;
+					this.SendPropertyChanged("student_id");
+					this.Onstudent_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastaccessed", DbType="DateTime")]
+		public System.Nullable<System.DateTime> lastaccessed
+		{
+			get
+			{
+				return this._lastaccessed;
+			}
+			set
+			{
+				if ((this._lastaccessed != value))
+				{
+					this.OnlastaccessedChanging(value);
+					this.SendPropertyChanging();
+					this._lastaccessed = value;
+					this.SendPropertyChanged("lastaccessed");
+					this.OnlastaccessedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_n_lastaccessed", Storage="_Student", ThisKey="student_id", OtherKey="student_id", IsForeignKey=true)]
+		public Student Student
+		{
+			get
+			{
+				return this._Student.Entity;
+			}
+			set
+			{
+				Student previousValue = this._Student.Entity;
+				if (((previousValue != value) 
+							|| (this._Student.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Student.Entity = null;
+						previousValue.n_lastaccesseds.Remove(this);
+					}
+					this._Student.Entity = value;
+					if ((value != null))
+					{
+						value.n_lastaccesseds.Add(this);
+						this._student_id = value.student_id;
+					}
+					else
+					{
+						this._student_id = default(string);
+					}
+					this.SendPropertyChanged("Student");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.notifications")]
+	public partial class notification : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _notif_id;
+		
+		private System.Nullable<int> _sem;
+		
+		private System.Nullable<System.DateTime> _notifdate;
+		
+		private string _notif;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onnotif_idChanging(int value);
+    partial void Onnotif_idChanged();
+    partial void OnsemChanging(System.Nullable<int> value);
+    partial void OnsemChanged();
+    partial void OnnotifdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnnotifdateChanged();
+    partial void OnnotifChanging(string value);
+    partial void OnnotifChanged();
+    #endregion
+		
+		public notification()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notif_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int notif_id
+		{
+			get
+			{
+				return this._notif_id;
+			}
+			set
+			{
+				if ((this._notif_id != value))
+				{
+					this.Onnotif_idChanging(value);
+					this.SendPropertyChanging();
+					this._notif_id = value;
+					this.SendPropertyChanged("notif_id");
+					this.Onnotif_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sem", DbType="Int")]
+		public System.Nullable<int> sem
+		{
+			get
+			{
+				return this._sem;
+			}
+			set
+			{
+				if ((this._sem != value))
+				{
+					this.OnsemChanging(value);
+					this.SendPropertyChanging();
+					this._sem = value;
+					this.SendPropertyChanged("sem");
+					this.OnsemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notifdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> notifdate
+		{
+			get
+			{
+				return this._notifdate;
+			}
+			set
+			{
+				if ((this._notifdate != value))
+				{
+					this.OnnotifdateChanging(value);
+					this.SendPropertyChanging();
+					this._notifdate = value;
+					this.SendPropertyChanged("notifdate");
+					this.OnnotifdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notif", DbType="VarChar(2000)")]
+		public string notif
+		{
+			get
+			{
+				return this._notif;
+			}
+			set
+			{
+				if ((this._notif != value))
+				{
+					this.OnnotifChanging(value);
+					this.SendPropertyChanging();
+					this._notif = value;
+					this.SendPropertyChanged("notif");
+					this.OnnotifChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Semester")]
 	public partial class Semester : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3462,6 +3697,8 @@ namespace DepartmentPortal
 		
 		private string _sec_ans_2;
 		
+		private EntitySet<n_lastaccessed> _n_lastaccesseds;
+		
 		private EntitySet<Semester> _Semesters;
 		
 		private EntitySet<skipped> _skippeds;
@@ -3518,6 +3755,7 @@ namespace DepartmentPortal
 		
 		public Student()
 		{
+			this._n_lastaccesseds = new EntitySet<n_lastaccessed>(new Action<n_lastaccessed>(this.attach_n_lastaccesseds), new Action<n_lastaccessed>(this.detach_n_lastaccesseds));
 			this._Semesters = new EntitySet<Semester>(new Action<Semester>(this.attach_Semesters), new Action<Semester>(this.detach_Semesters));
 			this._skippeds = new EntitySet<skipped>(new Action<skipped>(this.attach_skippeds), new Action<skipped>(this.detach_skippeds));
 			OnCreated();
@@ -3963,6 +4201,19 @@ namespace DepartmentPortal
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_n_lastaccessed", Storage="_n_lastaccesseds", ThisKey="student_id", OtherKey="student_id")]
+		public EntitySet<n_lastaccessed> n_lastaccesseds
+		{
+			get
+			{
+				return this._n_lastaccesseds;
+			}
+			set
+			{
+				this._n_lastaccesseds.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_Semester", Storage="_Semesters", ThisKey="student_id", OtherKey="student_id")]
 		public EntitySet<Semester> Semesters
 		{
@@ -4007,6 +4258,18 @@ namespace DepartmentPortal
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_n_lastaccesseds(n_lastaccessed entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = this;
+		}
+		
+		private void detach_n_lastaccesseds(n_lastaccessed entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student = null;
 		}
 		
 		private void attach_Semesters(Semester entity)

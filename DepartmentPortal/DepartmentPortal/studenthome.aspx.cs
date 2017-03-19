@@ -37,10 +37,31 @@ namespace DepartmentPortal
                 {
                     using (DepartmentPortalDataContext db = new DepartmentPortalDataContext())
                     {
+                        var lat = from i in db.n_lastaccesseds
+                                                     where i.student_id == id
+                                                     select i.lastaccessed;
+
+
+                        if (!lat.Any())
+                        {
+                            n_lastaccessed n = new n_lastaccessed()
+                            {
+                                student_id = id,
+                                lastaccessed = DateTime.Now
+                            };
+                            db.n_lastaccesseds.InsertOnSubmit(n);
+                            db.SubmitChanges();
+                        }
+
+                        DateTime la = Convert.ToDateTime(lat.Single());
+
+                        Session["notifcount"] = (from i in db.notifications
+                                     where i.sem == sem && Convert.ToDateTime(i.notifdate).CompareTo(la) > 0
+                                     select i).Count();
+
                         cs = (from i in db.Semesters
                               where i.student_id == id && i.sem == sem
-                              select i.division).Single().ToString();
-                                            
+                              select i.division).Single().ToString();                                            
 
                         batch = (from i in db.Semesters
                                  where i.student_id == id && i.sem == sem
@@ -117,8 +138,8 @@ namespace DepartmentPortal
                             }
                         }
                         TimeSpan endtime = TimeSpan.Parse(head[z].Substring(head[z].IndexOf('-')+1));
-                        TimeSpan now = TimeSpan.Parse("8:30");
-                        //TimeSpan now = TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString());
+                        //TimeSpan now = TimeSpan.Parse("8:30");
+                        TimeSpan now = TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString());
                         
                         var c = (from j in db.DailyTTs
                                  where j.tt_Id == ttid
@@ -127,7 +148,7 @@ namespace DepartmentPortal
                         string[] t = { c.s1_type, c.s2_type, c.s3_type, c.s4_type, c.s5_type, c.s6_type, c.s7_type };
 
                         var d = (from k in db.lecTTs
-                                 where k.tt_id == ttid && k.day == "Monday" //DateTime.Now.DayOfWeek.ToString()
+                                 where k.tt_id == ttid && k.day == DateTime.Now.DayOfWeek.ToString()
                                  select k).Single();
 
 
@@ -142,7 +163,7 @@ namespace DepartmentPortal
                                       };
 
                         var f = from k in db.lab_tts
-                                where k.tt_id == ttid && k.b1==batch && k.day == "Monday" //DateTime.Now.DayOfWeek.ToString()
+                                where k.tt_id == ttid && k.b1==batch && k.day == DateTime.Now.DayOfWeek.ToString()
                                 select new { a = k.s1 + ", " + k.f1 };
 
                         if (timeslot[0].CompareTo(now) > 0)
@@ -212,7 +233,7 @@ namespace DepartmentPortal
                             select i;
 
                     if (q.Any()) {
-                        lblskippederror.Text = "You have already skipped this slot.";
+                        lblskippederror.Text = "You have already skipped this session.";
                     }
                     else
                     {
