@@ -875,7 +875,7 @@ namespace DepartmentPortal
 		
 		private string _grade;
 		
-		private System.Nullable<char> _status;
+		private string _status;
 		
 		private EntityRef<Semester> _Semester;
 		
@@ -901,7 +901,7 @@ namespace DepartmentPortal
     partial void Onrem_2Changed();
     partial void OngradeChanging(string value);
     partial void OngradeChanged();
-    partial void OnstatusChanging(System.Nullable<char> value);
+    partial void OnstatusChanging(string value);
     partial void OnstatusChanged();
     #endregion
 		
@@ -1080,8 +1080,8 @@ namespace DepartmentPortal
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(1)")]
-		public System.Nullable<char> status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="NChar(10)")]
+		public string status
 		{
 			get
 			{
@@ -1695,7 +1695,13 @@ namespace DepartmentPortal
 		
 		private System.Nullable<int> _session_id;
 		
-		private System.Nullable<int> _marks;
+		private System.Nullable<int> _marks1;
+		
+		private System.Nullable<int> _marks2;
+		
+		private System.Nullable<int> _marks3;
+		
+		private System.Nullable<int> _bmarks;
 		
 		private EntityRef<session> _session;
 		
@@ -1711,8 +1717,14 @@ namespace DepartmentPortal
     partial void Onsubject_idChanged();
     partial void Onsession_idChanging(System.Nullable<int> value);
     partial void Onsession_idChanged();
-    partial void OnmarksChanging(System.Nullable<int> value);
-    partial void OnmarksChanged();
+    partial void Onmarks1Changing(System.Nullable<int> value);
+    partial void Onmarks1Changed();
+    partial void Onmarks2Changing(System.Nullable<int> value);
+    partial void Onmarks2Changed();
+    partial void Onmarks3Changing(System.Nullable<int> value);
+    partial void Onmarks3Changed();
+    partial void OnbmarksChanging(System.Nullable<int> value);
+    partial void OnbmarksChanged();
     #endregion
 		
 		public InternalMark()
@@ -1790,22 +1802,82 @@ namespace DepartmentPortal
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_marks", DbType="Int")]
-		public System.Nullable<int> marks
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_marks1", DbType="Int")]
+		public System.Nullable<int> marks1
 		{
 			get
 			{
-				return this._marks;
+				return this._marks1;
 			}
 			set
 			{
-				if ((this._marks != value))
+				if ((this._marks1 != value))
 				{
-					this.OnmarksChanging(value);
+					this.Onmarks1Changing(value);
 					this.SendPropertyChanging();
-					this._marks = value;
-					this.SendPropertyChanged("marks");
-					this.OnmarksChanged();
+					this._marks1 = value;
+					this.SendPropertyChanged("marks1");
+					this.Onmarks1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_marks2", DbType="Int")]
+		public System.Nullable<int> marks2
+		{
+			get
+			{
+				return this._marks2;
+			}
+			set
+			{
+				if ((this._marks2 != value))
+				{
+					this.Onmarks2Changing(value);
+					this.SendPropertyChanging();
+					this._marks2 = value;
+					this.SendPropertyChanged("marks2");
+					this.Onmarks2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_marks3", DbType="Int")]
+		public System.Nullable<int> marks3
+		{
+			get
+			{
+				return this._marks3;
+			}
+			set
+			{
+				if ((this._marks3 != value))
+				{
+					this.Onmarks3Changing(value);
+					this.SendPropertyChanging();
+					this._marks3 = value;
+					this.SendPropertyChanged("marks3");
+					this.Onmarks3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bmarks", DbType="Int")]
+		public System.Nullable<int> bmarks
+		{
+			get
+			{
+				return this._bmarks;
+			}
+			set
+			{
+				if ((this._bmarks != value))
+				{
+					this.OnbmarksChanging(value);
+					this.SendPropertyChanging();
+					this._bmarks = value;
+					this.SendPropertyChanged("bmarks");
+					this.OnbmarksChanged();
 				}
 			}
 		}

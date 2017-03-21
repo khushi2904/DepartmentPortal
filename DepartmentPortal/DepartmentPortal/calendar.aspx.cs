@@ -24,7 +24,7 @@ namespace DepartmentPortal
                             select new
                             {
                                 i.name,
-                                date= i.date.ToString().Remove(11)
+                                date= i.date.ToString()
                             }).OrderBy(d=>d.date);
 
                     gvevents.DataSource = q;

@@ -191,6 +191,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="examresults.aspx" />
     <Content Include="expired.aspx" />
     <Content Include="facultyhome.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -206,6 +207,9 @@
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="forgotpassword.aspx" />
+    <Content Include="messages.aspx" />
+    <Content Include="myprofs.aspx" />
+    <Content Include="mysubjects.aspx" />
     <Content Include="notifications.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -393,6 +397,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DepartmentPortal.dbml</DependentUpon>
     </Compile>
+    <Compile Include="examresults.aspx.cs">
+      <DependentUpon>examresults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="examresults.aspx.designer.cs">
+      <DependentUpon>examresults.aspx</DependentUpon>
+    </Compile>
     <Compile Include="expired.aspx.cs">
       <DependentUpon>expired.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,6 +431,27 @@
     </Compile>
     <Compile Include="forgotpassword.aspx.designer.cs">
       <DependentUpon>forgotpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="messages.aspx.cs">
+      <DependentUpon>messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="messages.aspx.designer.cs">
+      <DependentUpon>messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myprofs.aspx.cs">
+      <DependentUpon>myprofs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myprofs.aspx.designer.cs">
+      <DependentUpon>myprofs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mysubjects.aspx.cs">
+      <DependentUpon>mysubjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mysubjects.aspx.designer.cs">
+      <DependentUpon>mysubjects.aspx</DependentUpon>
     </Compile>
     <Compile Include="notifications.aspx.cs">
       <DependentUpon>notifications.aspx</DependentUpon>
