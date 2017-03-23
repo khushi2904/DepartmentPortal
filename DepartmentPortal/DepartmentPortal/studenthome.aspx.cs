@@ -28,36 +28,60 @@ namespace DepartmentPortal
                 branch = Session["branch"].ToString();
                 id = Session["id"].ToString();
 
-                if (!this.IsPostBack)
-                {
-                    lbtnskip.Visible = false;
-                    lblskippederror.Text = "";
-                }
                 try
                 {
                     using (DepartmentPortalDataContext db = new DepartmentPortalDataContext())
                     {
-                        var lat = from i in db.n_lastaccesseds
-                                                     where i.student_id == id
-                                                     select i.lastaccessed;
 
 
-                        if (!lat.Any())
+                        if (!this.IsPostBack)
                         {
-                            n_lastaccessed n = new n_lastaccessed()
+                            lbtnskip.Visible = false;
+                            lblskippederror.Text = "";
+
+                            var lat = from i in db.n_lastaccesseds
+                                      where i.student_id == id
+                                      select i.lastaccessed;
+
+                            var mlat = from i in db.m_lastaccesseds
+                                       where i.student_id == id
+                                       select i.lastaccesssed;
+
+                            if (!mlat.Any())
                             {
-                                student_id = id,
-                                lastaccessed = DateTime.Now
-                            };
-                            db.n_lastaccesseds.InsertOnSubmit(n);
-                            db.SubmitChanges();
+                                m_lastaccessed m = new m_lastaccessed()
+                                {
+                                    student_id = id,
+                                    lastaccesssed = DateTime.Now
+                                };
+                                db.m_lastaccesseds.InsertOnSubmit(m);
+                                db.SubmitChanges();
+                            }
+
+
+                            if (!lat.Any())
+                            {
+                                n_lastaccessed n = new n_lastaccessed()
+                                {
+                                    student_id = id,
+                                    lastaccessed = DateTime.Now
+                                };
+                                db.n_lastaccesseds.InsertOnSubmit(n);
+                                db.SubmitChanges();
+                            }
+
+                            DateTime la = Convert.ToDateTime(lat.Single());
+                            DateTime ma = Convert.ToDateTime(mlat.Single());
+
+                            Session["messagecount"] = (from i in db.messages
+                                                       where i.student_id == id && Convert.ToDateTime(i.sent_time).CompareTo(ma) > 0
+                                                       select i).Count();
+
+                            Session["notifcount"] = (from i in db.notifications
+                                                     where i.sem == sem && Convert.ToDateTime(i.notifdate).CompareTo(la) > 0
+                                                     select i).Count();
                         }
-
-                        DateTime la = Convert.ToDateTime(lat.Single());
-
-                        Session["notifcount"] = (from i in db.notifications
-                                     where i.sem == sem && Convert.ToDateTime(i.notifdate).CompareTo(la) > 0
-                                     select i).Count();
+               
 
                         cs = (from i in db.Semesters
                               where i.student_id == id && i.sem == sem
@@ -173,7 +197,7 @@ namespace DepartmentPortal
                         else if (timeslot[z].CompareTo(now) < 0 && now.CompareTo(endtime) < 0)
                         {
                             if (t[z].Contains("l"))
-                                lblcurlec.Text = a[z-1];
+                                lblcurlec.Text = a[z];
                             else
                                 lblcurlec.Text = f.Single().ToString();
                             lbtnskip.Visible = true;

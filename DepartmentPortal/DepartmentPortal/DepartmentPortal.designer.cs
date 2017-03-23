@@ -51,6 +51,12 @@ namespace DepartmentPortal
     partial void InsertlecTT(lecTT instance);
     partial void UpdatelecTT(lecTT instance);
     partial void DeletelecTT(lecTT instance);
+    partial void Insertm_lastaccessed(m_lastaccessed instance);
+    partial void Updatem_lastaccessed(m_lastaccessed instance);
+    partial void Deletem_lastaccessed(m_lastaccessed instance);
+    partial void Insertmessage(message instance);
+    partial void Updatemessage(message instance);
+    partial void Deletemessage(message instance);
     partial void Insertn_lastaccessed(n_lastaccessed instance);
     partial void Updaten_lastaccessed(n_lastaccessed instance);
     partial void Deleten_lastaccessed(n_lastaccessed instance);
@@ -157,6 +163,22 @@ namespace DepartmentPortal
 			get
 			{
 				return this.GetTable<lecTT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<m_lastaccessed> m_lastaccesseds
+		{
+			get
+			{
+				return this.GetTable<m_lastaccessed>();
+			}
+		}
+		
+		public System.Data.Linq.Table<message> messages
+		{
+			get
+			{
+				return this.GetTable<message>();
 			}
 		}
 		
@@ -2656,6 +2678,298 @@ namespace DepartmentPortal
 						this._tt_id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("DailyTT");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.m_lastaccessed")]
+	public partial class m_lastaccessed : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _la_id;
+		
+		private string _student_id;
+		
+		private System.Nullable<System.DateTime> _lastaccesssed;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onla_idChanging(int value);
+    partial void Onla_idChanged();
+    partial void Onstudent_idChanging(string value);
+    partial void Onstudent_idChanged();
+    partial void OnlastaccesssedChanging(System.Nullable<System.DateTime> value);
+    partial void OnlastaccesssedChanged();
+    #endregion
+		
+		public m_lastaccessed()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_la_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int la_id
+		{
+			get
+			{
+				return this._la_id;
+			}
+			set
+			{
+				if ((this._la_id != value))
+				{
+					this.Onla_idChanging(value);
+					this.SendPropertyChanging();
+					this._la_id = value;
+					this.SendPropertyChanged("la_id");
+					this.Onla_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student_id", DbType="VarChar(10)")]
+		public string student_id
+		{
+			get
+			{
+				return this._student_id;
+			}
+			set
+			{
+				if ((this._student_id != value))
+				{
+					this.Onstudent_idChanging(value);
+					this.SendPropertyChanging();
+					this._student_id = value;
+					this.SendPropertyChanged("student_id");
+					this.Onstudent_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastaccesssed", DbType="DateTime")]
+		public System.Nullable<System.DateTime> lastaccesssed
+		{
+			get
+			{
+				return this._lastaccesssed;
+			}
+			set
+			{
+				if ((this._lastaccesssed != value))
+				{
+					this.OnlastaccesssedChanging(value);
+					this.SendPropertyChanging();
+					this._lastaccesssed = value;
+					this.SendPropertyChanged("lastaccesssed");
+					this.OnlastaccesssedChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.message")]
+	public partial class message : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _msg_id;
+		
+		private string _student_id;
+		
+		private string _faculty_id;
+		
+		private string _message1;
+		
+		private System.Nullable<System.DateTime> _sent_time;
+		
+		private System.Nullable<char> _type;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onmsg_idChanging(int value);
+    partial void Onmsg_idChanged();
+    partial void Onstudent_idChanging(string value);
+    partial void Onstudent_idChanged();
+    partial void Onfaculty_idChanging(string value);
+    partial void Onfaculty_idChanged();
+    partial void Onmessage1Changing(string value);
+    partial void Onmessage1Changed();
+    partial void Onsent_timeChanging(System.Nullable<System.DateTime> value);
+    partial void Onsent_timeChanged();
+    partial void OntypeChanging(System.Nullable<char> value);
+    partial void OntypeChanged();
+    #endregion
+		
+		public message()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_msg_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int msg_id
+		{
+			get
+			{
+				return this._msg_id;
+			}
+			set
+			{
+				if ((this._msg_id != value))
+				{
+					this.Onmsg_idChanging(value);
+					this.SendPropertyChanging();
+					this._msg_id = value;
+					this.SendPropertyChanged("msg_id");
+					this.Onmsg_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_student_id", DbType="VarChar(10)")]
+		public string student_id
+		{
+			get
+			{
+				return this._student_id;
+			}
+			set
+			{
+				if ((this._student_id != value))
+				{
+					this.Onstudent_idChanging(value);
+					this.SendPropertyChanging();
+					this._student_id = value;
+					this.SendPropertyChanged("student_id");
+					this.Onstudent_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_faculty_id", DbType="VarChar(10)")]
+		public string faculty_id
+		{
+			get
+			{
+				return this._faculty_id;
+			}
+			set
+			{
+				if ((this._faculty_id != value))
+				{
+					this.Onfaculty_idChanging(value);
+					this.SendPropertyChanging();
+					this._faculty_id = value;
+					this.SendPropertyChanged("faculty_id");
+					this.Onfaculty_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="message", Storage="_message1", DbType="VarChar(5000)")]
+		public string message1
+		{
+			get
+			{
+				return this._message1;
+			}
+			set
+			{
+				if ((this._message1 != value))
+				{
+					this.Onmessage1Changing(value);
+					this.SendPropertyChanging();
+					this._message1 = value;
+					this.SendPropertyChanged("message1");
+					this.Onmessage1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sent_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> sent_time
+		{
+			get
+			{
+				return this._sent_time;
+			}
+			set
+			{
+				if ((this._sent_time != value))
+				{
+					this.Onsent_timeChanging(value);
+					this.SendPropertyChanging();
+					this._sent_time = value;
+					this.SendPropertyChanged("sent_time");
+					this.Onsent_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Char(1)")]
+		public System.Nullable<char> type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this.OntypeChanging(value);
+					this.SendPropertyChanging();
+					this._type = value;
+					this.SendPropertyChanged("type");
+					this.OntypeChanged();
 				}
 			}
 		}

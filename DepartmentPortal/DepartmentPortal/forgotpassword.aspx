@@ -116,13 +116,14 @@
         
 
         <br /><br /><br /><br /><br /><br />
-        <div style="background-color:#f0b04b; padding:20px" class="text-center">
-                    <h3>Explore the power of simpler and smarter services</h3>
-                    <h4>24x7 access to a wide range of transactions</h4>
-                    <h4>Grow your money with smart ways to invest online</h4>
-                    <p style="font-size:10px"><i>Customer ID is mandatory for online registration.<br /> To avail a new Customer ID, register at the nearest NTKV Bank branch.</i></p>
+        <div style="background-color:#f0b04b; padding:10px" class="text-center">
+                    <h3>SampleText SampleText SampleText SampleText</h3>
+                    <h4>SampleText SampleText SampleText SampleText</h4>
+                    <h4>SampleText SampleText SampleText SampleText</h4>
+                    <p style="font-size:10px"><i>SampleText SampleText SampleText SampleText<br />SampleText SampleText SampleText</i></p>
 
         </div>
+
         <div class="container-fluid text-center" style="padding-top:0.5em; color:#dfcece;background-color:black">
                 <p style="font-size:x-large"><u>About</u></p>
             <p>Online Department Portal<br />

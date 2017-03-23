@@ -115,6 +115,23 @@
       <Association Name="DailyTT_lecTT" Member="DailyTT" ThisKey="tt_id" OtherKey="tt_Id" Type="DailyTT" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.m_lastaccessed" Member="m_lastaccesseds">
+    <Type Name="m_lastaccessed">
+      <Column Name="la_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="student_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="lastaccesssed" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.message" Member="messages">
+    <Type Name="message">
+      <Column Name="msg_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="student_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="faculty_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="message" Member="message1" Type="System.String" DbType="VarChar(5000)" CanBeNull="true" />
+      <Column Name="sent_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.n_lastaccessed" Member="n_lastaccesseds">
     <Type Name="n_lastaccessed">
       <Column Name="la_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
