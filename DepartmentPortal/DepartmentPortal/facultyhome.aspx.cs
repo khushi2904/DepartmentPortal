@@ -11,7 +11,15 @@ namespace DepartmentPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null || Session["id"] == null || Session["type"] == null)
+            {
+                Session.RemoveAll();
+                Response.Redirect("expired.aspx");
+            }
+            else
+            {
 
+            }
         }
     }
 }

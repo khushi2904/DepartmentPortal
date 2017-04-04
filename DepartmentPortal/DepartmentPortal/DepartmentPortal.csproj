@@ -191,9 +191,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="editsubjects.aspx" />
     <Content Include="examresults.aspx" />
     <Content Include="expired.aspx" />
     <Content Include="facultyhome.aspx" />
+    <Content Include="facultyprofile.aspx" />
+    <Content Include="fcalendar.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -207,6 +210,7 @@
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="forgotpassword.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="messages.aspx" />
     <Content Include="myprofs.aspx" />
     <Content Include="mysubjects.aspx" />
@@ -397,6 +401,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DepartmentPortal.dbml</DependentUpon>
     </Compile>
+    <Compile Include="editsubjects.aspx.cs">
+      <DependentUpon>editsubjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editsubjects.aspx.designer.cs">
+      <DependentUpon>editsubjects.aspx</DependentUpon>
+    </Compile>
     <Compile Include="examresults.aspx.cs">
       <DependentUpon>examresults.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -425,12 +436,33 @@
     <Compile Include="facultyhome.aspx.designer.cs">
       <DependentUpon>facultyhome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="facultyprofile.aspx.cs">
+      <DependentUpon>facultyprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="facultyprofile.aspx.designer.cs">
+      <DependentUpon>facultyprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fcalendar.aspx.cs">
+      <DependentUpon>fcalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fcalendar.aspx.designer.cs">
+      <DependentUpon>fcalendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forgotpassword.aspx.cs">
       <DependentUpon>forgotpassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forgotpassword.aspx.designer.cs">
       <DependentUpon>forgotpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="messages.aspx.cs">
       <DependentUpon>messages.aspx</DependentUpon>

@@ -58,11 +58,7 @@
       <Column Name="birthdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="email_id" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="contact_no" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
-      <Column Name="add1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="add2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="state" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="pincode" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="sec_ques_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sec_ans_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sec_ques_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />

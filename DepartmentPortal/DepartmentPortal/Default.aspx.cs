@@ -11,7 +11,7 @@ namespace DepartmentPortal
 {
     public partial class Default : System.Web.UI.Page
     {
-        bool idflag = false;
+        static bool idflag = false;
         
         protected void Page_Load(object sender, EventArgs e)
         {

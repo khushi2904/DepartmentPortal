@@ -1237,15 +1237,7 @@ namespace DepartmentPortal
 		
 		private System.Nullable<decimal> _contact_no;
 		
-		private string _add1;
-		
-		private string _add2;
-		
-		private string _city;
-		
-		private string _state;
-		
-		private System.Nullable<decimal> _pincode;
+		private string _address;
 		
 		private string _sec_ques_1;
 		
@@ -1279,16 +1271,8 @@ namespace DepartmentPortal
     partial void Onemail_idChanged();
     partial void Oncontact_noChanging(System.Nullable<decimal> value);
     partial void Oncontact_noChanged();
-    partial void Onadd1Changing(string value);
-    partial void Onadd1Changed();
-    partial void Onadd2Changing(string value);
-    partial void Onadd2Changed();
-    partial void OncityChanging(string value);
-    partial void OncityChanged();
-    partial void OnstateChanging(string value);
-    partial void OnstateChanged();
-    partial void OnpincodeChanging(System.Nullable<decimal> value);
-    partial void OnpincodeChanged();
+    partial void OnaddressChanging(string value);
+    partial void OnaddressChanged();
     partial void Onsec_ques_1Changing(string value);
     partial void Onsec_ques_1Changed();
     partial void Onsec_ans_1Changing(string value);
@@ -1504,102 +1488,22 @@ namespace DepartmentPortal
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_add1", DbType="VarChar(50)")]
-		public string add1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="VarChar(500)")]
+		public string address
 		{
 			get
 			{
-				return this._add1;
+				return this._address;
 			}
 			set
 			{
-				if ((this._add1 != value))
+				if ((this._address != value))
 				{
-					this.Onadd1Changing(value);
+					this.OnaddressChanging(value);
 					this.SendPropertyChanging();
-					this._add1 = value;
-					this.SendPropertyChanged("add1");
-					this.Onadd1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_add2", DbType="VarChar(50)")]
-		public string add2
-		{
-			get
-			{
-				return this._add2;
-			}
-			set
-			{
-				if ((this._add2 != value))
-				{
-					this.Onadd2Changing(value);
-					this.SendPropertyChanging();
-					this._add2 = value;
-					this.SendPropertyChanged("add2");
-					this.Onadd2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(50)")]
-		public string city
-		{
-			get
-			{
-				return this._city;
-			}
-			set
-			{
-				if ((this._city != value))
-				{
-					this.OncityChanging(value);
-					this.SendPropertyChanging();
-					this._city = value;
-					this.SendPropertyChanged("city");
-					this.OncityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="VarChar(50)")]
-		public string state
-		{
-			get
-			{
-				return this._state;
-			}
-			set
-			{
-				if ((this._state != value))
-				{
-					this.OnstateChanging(value);
-					this.SendPropertyChanging();
-					this._state = value;
-					this.SendPropertyChanged("state");
-					this.OnstateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pincode", DbType="Decimal(10,0)")]
-		public System.Nullable<decimal> pincode
-		{
-			get
-			{
-				return this._pincode;
-			}
-			set
-			{
-				if ((this._pincode != value))
-				{
-					this.OnpincodeChanging(value);
-					this.SendPropertyChanging();
-					this._pincode = value;
-					this.SendPropertyChanged("pincode");
-					this.OnpincodeChanged();
+					this._address = value;
+					this.SendPropertyChanged("address");
+					this.OnaddressChanged();
 				}
 			}
 		}

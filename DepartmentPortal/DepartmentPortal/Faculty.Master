@@ -217,7 +217,7 @@
                     <li><a href="searchstudent.aspx">Search Students</a></li>
                     <li><a href="updateresults.aspx">Update Results</a></li>
                     <li><a href="editsubjects.aspx">Courses</a></li>
-                    <li><a href="calendar.aspx">College Calendar</a></li>                    
+                    <li><a href="fcalendar.aspx">College Calendar</a></li>                    
                     <li><a href="facultyprofile.aspx">Profile</a></li>
                     <li><a href="logout.aspx">Log Out</a></li>
                 </ul>
