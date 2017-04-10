@@ -39,7 +39,7 @@
       <Column Name="marks" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="pract_marks" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="rem_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="rem_2" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="rem_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="grade" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
       <Column Name="status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Association Name="Semester_ExternalMark" Member="Semester" ThisKey="sem_id" OtherKey="sem_id" Type="Semester" IsForeignKey="true" />
@@ -74,6 +74,7 @@
       <Column Name="marks2" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="marks3" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="bmarks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rmarks" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="session_InternalMark" Member="session" ThisKey="session_id" OtherKey="session_id" Type="session" IsForeignKey="true" />
       <Association Name="subject_InternalMark" Member="subject" ThisKey="subject_id" OtherKey="subject_id" Type="subject" IsForeignKey="true" />
     </Type>

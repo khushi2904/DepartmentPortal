@@ -893,7 +893,7 @@ namespace DepartmentPortal
 		
 		private System.Nullable<int> _rem_1;
 		
-		private string _rem_2;
+		private System.Nullable<int> _rem_2;
 		
 		private string _grade;
 		
@@ -919,7 +919,7 @@ namespace DepartmentPortal
     partial void Onpract_marksChanged();
     partial void Onrem_1Changing(System.Nullable<int> value);
     partial void Onrem_1Changed();
-    partial void Onrem_2Changing(string value);
+    partial void Onrem_2Changing(System.Nullable<int> value);
     partial void Onrem_2Changed();
     partial void OngradeChanging(string value);
     partial void OngradeChanged();
@@ -1062,8 +1062,8 @@ namespace DepartmentPortal
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rem_2", DbType="NChar(10)")]
-		public string rem_2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rem_2", DbType="Int")]
+		public System.Nullable<int> rem_2
 		{
 			get
 			{
@@ -1629,6 +1629,8 @@ namespace DepartmentPortal
 		
 		private System.Nullable<int> _bmarks;
 		
+		private System.Nullable<int> _rmarks;
+		
 		private EntityRef<session> _session;
 		
 		private EntityRef<subject> _subject;
@@ -1651,6 +1653,8 @@ namespace DepartmentPortal
     partial void Onmarks3Changed();
     partial void OnbmarksChanging(System.Nullable<int> value);
     partial void OnbmarksChanged();
+    partial void OnrmarksChanging(System.Nullable<int> value);
+    partial void OnrmarksChanged();
     #endregion
 		
 		public InternalMark()
@@ -1804,6 +1808,26 @@ namespace DepartmentPortal
 					this._bmarks = value;
 					this.SendPropertyChanged("bmarks");
 					this.OnbmarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rmarks", DbType="Int")]
+		public System.Nullable<int> rmarks
+		{
+			get
+			{
+				return this._rmarks;
+			}
+			set
+			{
+				if ((this._rmarks != value))
+				{
+					this.OnrmarksChanging(value);
+					this.SendPropertyChanging();
+					this._rmarks = value;
+					this.SendPropertyChanged("rmarks");
+					this.OnrmarksChanged();
 				}
 			}
 		}
