@@ -193,14 +193,9 @@
       <Column Name="seat" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
       <Column Name="yoc" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
       <Column Name="birthdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="email_id" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="email_id" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="contact_no" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
-      <Column Name="add1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="add2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="pincode" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
-      <Column Name="state" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="country" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="sec_ques_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sec_ans_1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sec_ques_2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />

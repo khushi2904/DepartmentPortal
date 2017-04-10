@@ -194,7 +194,8 @@
     <Content Include="editsubjects.aspx" />
     <Content Include="examresults.aspx" />
     <Content Include="expired.aspx" />
-    <Content Include="facultyhome.aspx" />
+    <Content Include="facultymessages.aspx" />
+    <Content Include="facultynotifications.aspx" />
     <Content Include="facultyprofile.aspx" />
     <Content Include="fcalendar.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -245,6 +246,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="searchstudent.aspx" />
     <Content Include="student.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -430,12 +432,19 @@
     <Compile Include="Faculty.Master.designer.cs">
       <DependentUpon>Faculty.Master</DependentUpon>
     </Compile>
-    <Compile Include="facultyhome.aspx.cs">
-      <DependentUpon>facultyhome.aspx</DependentUpon>
+    <Compile Include="facultymessages.aspx.cs">
+      <DependentUpon>facultymessages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="facultyhome.aspx.designer.cs">
-      <DependentUpon>facultyhome.aspx</DependentUpon>
+    <Compile Include="facultymessages.aspx.designer.cs">
+      <DependentUpon>facultymessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="facultynotifications.aspx.cs">
+      <DependentUpon>facultynotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="facultynotifications.aspx.designer.cs">
+      <DependentUpon>facultynotifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="facultyprofile.aspx.cs">
       <DependentUpon>facultyprofile.aspx</DependentUpon>
@@ -499,6 +508,13 @@
     </Compile>
     <Compile Include="profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="searchstudent.aspx.cs">
+      <DependentUpon>searchstudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="searchstudent.aspx.designer.cs">
+      <DependentUpon>searchstudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="student.aspx.cs">
       <DependentUpon>student.aspx</DependentUpon>

@@ -27,7 +27,7 @@ namespace DepartmentPortal
                             var q = (from i in db.Faculties
                                      where i.faculty_id == Session["id"].ToString()
                                      select i).Single();
-                            txtbdate.Text = q.birthdate.ToString().Remove(11);
+                            txtbdate.Text = q.birthdate.ToString().Remove(10);
                             txtbranch.Text = q.branch.ToString();
                             txtcontact.Text = q.contact_no.ToString();
                             txtdesignation.Text = q.Designation.ToString();
@@ -41,11 +41,13 @@ namespace DepartmentPortal
                         {
                             mvbutton.ActiveViewIndex = 0;
                             mvsearch.ActiveViewIndex = 0;
+                            mvaddnew.ActiveViewIndex = 0;
                         }
                         else if (Session["type"].ToString() == "a")
                         {
                             mvbutton.ActiveViewIndex = 1;
                             mvsearch.ActiveViewIndex = 1;
+                            mvaddnew.ActiveViewIndex = 1;
 
                             txtbdate.ReadOnly = false;
                             txtbranch.ReadOnly = false;
@@ -115,6 +117,84 @@ namespace DepartmentPortal
                    
                 }
                 catch(Exception ex) { }
+            }
+        }
+
+        protected void btnadd_Click(object sender, EventArgs e)
+        {
+            using(DepartmentPortalDataContext db = new DepartmentPortalDataContext())
+            {
+                try
+                {
+                    var id = (from i in db.Students
+                              select i.Id).ToList().LastOrDefault();
+                    id++;
+                    string stid = txtsnewbatch.Text.Substring(2) + txtsnewbranch.Text + "U" + txtsnewseat.Text + "0" + id;
+                    decimal yoc1 = Convert.ToDecimal(txtsnewbatch.Text) + 4;
+                    Student s = new Student()
+                    {
+                        student_id = stid,
+                        password = txtsnewfname.Text,
+                        full_name = txtsnewfname.Text,
+                        branch = txtsnewbranch.Text,
+                        batch = Convert.ToDecimal(txtsnewbatch.Text),
+                        seat = txtsnewseat.Text,
+                        current_sem = 1,
+                        yoc = yoc1,
+                        birthdate = Convert.ToDateTime(txtsnewbdate.Text),
+                        email_id = txtsnewemail.Text,
+                        contact_no = Convert.ToDecimal(txtsnewcontact.Text),
+                        address = txtsnewaddress.Text,
+                    };
+
+                    db.Students.InsertOnSubmit(s);
+                    db.SubmitChanges();
+
+                    lbladderror.Text = "Student has been added. ID = " + stid;
+                    
+                }
+                catch(Exception ex)
+                {
+                    lbladderror.Text = "Could not add student. please try again later";
+                }
+            }
+        }
+
+        protected void btnfadd_Click(object sender, EventArgs e)
+        {
+            using(DepartmentPortalDataContext db = new DepartmentPortalDataContext())
+            {
+                try
+                {
+                    var id = (from i in db.Faculties
+                              select i.id).ToList().LastOrDefault();
+                    id++;
+                    string ftid = txtfbranch.Text + id;
+
+                    Faculty f = new Faculty()
+                    {
+                        faculty_id = ftid,
+                        password = txtfnewname.Text,
+                        faculty_name = txtfnewname.Text,
+                        user_type = Convert.ToChar(txtfnewtype.Text),
+                        branch = txtfbranch.Text,
+                        Designation = txtfnewdesig.Text,
+                        birthdate = Convert.ToDateTime(txtfnewbdate.Text),
+                        email_id = txtfnewemail.Text,
+                        contact_no = Convert.ToDecimal(txtfnewcontact.Text),
+                        address = txtfnewadd.Text,
+                    };
+
+                    db.Faculties.InsertOnSubmit(f);
+                    db.SubmitChanges();
+
+                    lblfadderror.Text = "Faculty has been added. ID = " + ftid;
+
+                }
+                catch(Exception ex)
+                {
+                    lblfadderror.Text = "Could not add faculty. Please try again later";
+                }
             }
         }
     }

@@ -62,6 +62,34 @@ namespace DepartmentPortal
                                             Session["username"] = i.full_name;
                                             Session["sem"] = i.current_sem;
                                             Session["branch"] = i.branch;
+
+                                            DateTime today = DateTime.Now;
+                                            today = today.AddDays(-1);
+                                            
+                                            var ev = from j in db.Events
+                                                     where today.CompareTo(j.date)<0
+                                                     select j;
+
+                                            var notifs = (from j in db.notifications
+                                                          where today.CompareTo(j.notifdate) < 0
+                                                          select j.notif).ToList();
+
+                                            foreach(var k in ev)
+                                            {
+                                                string msg = "Tomorrow is " + k.name;
+                                                if (!notifs.Contains(msg))
+                                                {
+                                                    notification n = new notification()
+                                                    {
+                                                        notifdate = DateTime.Now,
+                                                        notif = msg
+                                                    };
+                                                    db.notifications.InsertOnSubmit(n);
+                                                    db.SubmitChanges();
+                                                }
+                                            }
+
+
                                             Response.Redirect("studenthome.aspx");
                                         }
                                     }
@@ -85,7 +113,7 @@ namespace DepartmentPortal
                                             Session["username"] = i.faculty_name;
                                             Session["type"] = i.user_type;
 
-                                            Response.Redirect("facultyhome.aspx");
+                                            Response.Redirect("facultyprofile.aspx");
                                         }
                                     }
                                     else

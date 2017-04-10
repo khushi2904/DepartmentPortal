@@ -78,7 +78,8 @@ namespace DepartmentPortal
                                     j.marks1,
                                     j.marks2,
                                     j.marks3,
-                                    j.bmarks
+                                    j.bmarks,
+                                    j.rmarks
                                 };
 
                         gvinternal.DataSource = q;
@@ -121,6 +122,7 @@ namespace DepartmentPortal
                 e.Row.Cells[3].Text = "S2 Marks";
                 e.Row.Cells[4].Text = "S3 Marks";
                 e.Row.Cells[5].Text = "Block Marks";
+                e.Row.Cells[6].Text = "Remedial Marks";
             }
         }
 

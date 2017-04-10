@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-9">
         <fieldset>
-            <legend><h2>Home</h2></legend>
+            <legend><h2>Exam Results</h2></legend>
                 
             <div class="form-inline">
 

@@ -199,7 +199,7 @@
         <nav style="padding-top:1em; padding-bottom:1em; background-color:#000000; position:fixed; top:0; width:100%" class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="facultyhome.aspx"><p style="color:#dfcece; font-size:45px; margin-top:28px">Dharmsinh Desai University</p></a>
+                    <a class="navbar-brand" href="facultyprofile.aspx"><p style="color:#dfcece; font-size:45px; margin-top:28px">Dharmsinh Desai University</p></a>
                 </div>
                 <div class="navbar navbar-nav navbar-right">
                     <p style="color:#dfcece;font-size:22px; margin-top:40px"><i>Welcome, <%=Session["username"].ToString() %></i></p>
@@ -211,14 +211,14 @@
         <nav style="margin-top:66px; position:fixed; background-color:black; border-style:solid" class="navbar navbar-inverse sidebar" role="navigation">
             <div class="container-fluid" style="font-size:16px">
                 <ul class="nav navbar-nav">
-                    <li><a href="facultyhome.aspx">Home</a></li>
-                    <li><a href="facultynotifications.aspx">Notifications&nbsp;&nbsp;&nbsp;<span style="background-color:gold">&nbsp;<span style="text-align:right;background-color:gold;color:black"><%=Session["notifcount"] %></span>&nbsp;</span></a></li>
+                    <li><a href="facultyprofile.aspx">Home</a></li>
+                    <li><a href="facultynotifications.aspx">Notifications</a></li>
                     <li><a href="facultymessages.aspx">Messages&nbsp;&nbsp;&nbsp;<span style="background-color:gold">&nbsp;<span style="text-align:right;background-color:gold;color:black"><%=Session["messagecount"] %></span>&nbsp;</span></a></li>
                     <li><a href="searchstudent.aspx">Search Students</a></li>
                     <li><a href="updateresults.aspx">Update Results</a></li>
                     <li><a href="editsubjects.aspx">Courses</a></li>
                     <li><a href="fcalendar.aspx">College Calendar</a></li>                    
-                    <li><a href="facultyprofile.aspx">Profile</a></li>
+                    <li><a href="facultytimetable.aspx">TimeTable</a></li>
                     <li><a href="logout.aspx">Log Out</a></li>
                 </ul>
             </div>

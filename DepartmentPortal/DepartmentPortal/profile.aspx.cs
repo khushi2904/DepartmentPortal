@@ -36,7 +36,7 @@ namespace DepartmentPortal
                         lblyoc.Text = (q.yoc.ToString()=="") ? "-------" : q.yoc.ToString();
                         lblbdate.Text = q.birthdate.ToString().Remove(11);
                         lblcontact.Text = q.contact_no.ToString();
-                        lbladdr.Text = q.add1.ToString() + ", " + q.add2.ToString() + ", " + q.city.ToString() + " - " + q.pincode + ", " + q.state + ", " + q.country + ".";
+                        lbladdr.Text = q.address.ToString();
                         lblemail.Text = q.email_id.ToString();
                     }
                 }

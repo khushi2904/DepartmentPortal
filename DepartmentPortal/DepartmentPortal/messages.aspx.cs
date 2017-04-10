@@ -122,7 +122,7 @@ namespace DepartmentPortal
 
                     if (!q.Any())
                     {
-                        lblnoresults.Text = "No Messages found.";
+                        mvchats.ActiveViewIndex = 1 ;
                     }
                     else
                     {
@@ -289,7 +289,7 @@ namespace DepartmentPortal
 
                     if (!q.Any())
                     {
-                        lblnoresults.Text = "No Messages found.";
+                        mvchats.ActiveViewIndex = 1;
                     }
                     else
                     {

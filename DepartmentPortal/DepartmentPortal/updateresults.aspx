@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-sm-8">
         <fieldset>
-            <legend><h2>Courses</h2></legend>            
+            <legend><h2>Update Results</h2></legend>            
             <div class="form-horizontal" style="margin-left:-120px">
 
                 <asp:MultiView ID="mvsearhbtn" runat="server">

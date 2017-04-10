@@ -28,14 +28,14 @@ namespace DepartmentPortal
                         DateTime today = DateTime.Now.AddDays(-30);
 
                         var la = (from i in db.n_lastaccesseds
-                                            where i.student_id == id
-                                            select i).Single();
-                        
+                                  where i.student_id == id
+                                  select i).Single();
+
 
                         date = Convert.ToDateTime(la.lastaccessed);
 
                         var q = (from i in db.notifications
-                                 where i.sem == sem && Convert.ToDateTime(i.notifdate).CompareTo(today) > 0
+                                 where (i.sem == sem || i.sem == null) && Convert.ToDateTime(i.notifdate).CompareTo(today) > 0
                                  select new
                                  {
                                      i.notif,
