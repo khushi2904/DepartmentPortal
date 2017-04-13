@@ -197,6 +197,7 @@
     <Content Include="facultymessages.aspx" />
     <Content Include="facultynotifications.aspx" />
     <Content Include="facultyprofile.aspx" />
+    <Content Include="facultytimetable.aspx" />
     <Content Include="fcalendar.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -452,6 +453,13 @@
     </Compile>
     <Compile Include="facultyprofile.aspx.designer.cs">
       <DependentUpon>facultyprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="facultytimetable.aspx.cs">
+      <DependentUpon>facultytimetable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="facultytimetable.aspx.designer.cs">
+      <DependentUpon>facultytimetable.aspx</DependentUpon>
     </Compile>
     <Compile Include="fcalendar.aspx.cs">
       <DependentUpon>fcalendar.aspx</DependentUpon>

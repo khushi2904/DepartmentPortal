@@ -4,11 +4,11 @@
 <div class="row">
     <div class="col-sm-9">
         <fieldset>
-            <legend><h2>Home</h2></legend>
+            <legend><h2>My Subjects</h2></legend>
                 <asp:GridView ID="gvsubjects" CellPadding="8" Width="1000px" OnRowDataBound="gvsubjects_RowDataBound" runat="server"></asp:GridView>
         </fieldset>
     </div>
 </div>
 </div>
-    <br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </asp:Content>

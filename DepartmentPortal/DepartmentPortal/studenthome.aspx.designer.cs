@@ -67,6 +67,15 @@ namespace DepartmentPortal {
         protected global::System.Web.UI.WebControls.Label lblskippederror;
         
         /// <summary>
+        /// lblestattendance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblestattendance;
+        
+        /// <summary>
         /// gvtimetable control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace DepartmentPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvtimetable;
+        
+        /// <summary>
+        /// gvskipedsessions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvskipedsessions;
     }
 }

@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-sm-8">
         <fieldset>
-            <legend><h2>Home</h2></legend>            
+            <legend><h2>Messages</h2></legend>            
 
             <asp:MultiView ID="mvchats" runat="server">
                 <asp:View id="v1" runat="server">
@@ -86,8 +86,7 @@
     </div>
 </div>
 </div>
-    <br /><br /><br /><br /><br /><br /><br />
-
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 
 

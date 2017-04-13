@@ -165,7 +165,7 @@
       <Column Name="sem_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="session_type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="attendance" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
-      <Column Name="est_attendance" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="est_attendance" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="session_InternalMark" Member="InternalMarks" ThisKey="session_id" OtherKey="session_id" Type="InternalMark" />
       <Association Name="Semester_session" Member="Semester" ThisKey="sem_id" OtherKey="sem_id" Type="Semester" IsForeignKey="true" />
     </Type>

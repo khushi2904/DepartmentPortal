@@ -74,7 +74,7 @@ namespace DepartmentPortal
                             DateTime ma = Convert.ToDateTime(mlat.Single());
 
                             Session["messagecount"] = (from i in db.messages
-                                                       where i.student_id == id && Convert.ToDateTime(i.sent_time).CompareTo(ma) > 0
+                                                       where i.student_id == id && ma.CompareTo(i.sent_time) < 0
                                                        select i).Count();
 
                             Session["notifcount"] = (from i in db.notifications
@@ -227,15 +227,35 @@ namespace DepartmentPortal
                             }
                         }
 
+                        var semid = (from i in db.Semesters
+                                     where i.student_id == Session["id"].ToString() && i.sem == sem
+                                     select i.sem_id).ToList().Last();
+
+                        var eta = (from i in db.sessions
+                                   where i.sem_id == semid
+                                   select i).SingleOrDefault();
+
+                        double attendance = Convert.ToDouble(eta.est_attendance) / 3;
+
+
                         int nl = (from i in db.skippeds
-                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'l'
+                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date
                                   select i).Count();
+                        
+                        lblestattendance.Text = "Est. Attendance : " + attendance + "%";
+                        lblskipped.Text = "You have skipped " + nl+ " sessions today.";
 
-                        int nb = (from i in db.skippeds
-                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'b'
-                                  select i).Count();
+                        var skips = (from i in db.skippeds
+                                     where i.student_id == id && i.sem == sem
+                                     select new
+                                     {
+                                         i.skipped1,
+                                         d = i.skipdate.ToString().Remove(10)
+                                     }).OrderByDescending(j=>j.d);
 
-                        lblskipped.Text = "You have skipped " + nl + " lectures and " + nb + " labs today.";
+                        gvskipedsessions.DataSource = skips;
+                        gvskipedsessions.DataBind();
+
                     }
                 }
                 catch(Exception ex)
@@ -266,24 +286,46 @@ namespace DepartmentPortal
                             student_id = id,
                             sem = sem,
                             skipdate = DateTime.Now.Date,
-                            skipped1 = lblcurlec.Text
+                            skipped1 = lblcurlec.Text,
                         };
                         db.skippeds.InsertOnSubmit(s);
                         db.SubmitChanges();
 
+                        var semid = (from i in db.Semesters
+                                     where i.student_id == Session["id"].ToString() && i.sem == sem
+                                     select i.sem_id).ToList().Last();
+
+
+                        var eta = (from i in db.sessions
+                                   where i.sem_id == semid
+                                   select i).SingleOrDefault();
+
+                        eta.est_attendance = eta.est_attendance - 1;
+                        db.SubmitChanges();
+                        double attendance = Convert.ToDouble(eta.est_attendance) / 3;
+
+
+
                         int nl = (from i in db.skippeds
-                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'l'
+                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date
                                   select i).Count();
+                        
+                        lblskipped.Text = "You have skipped " + nl + " sessions today.";
+                        lblestattendance.Text = "Est. Attendance : " + attendance + "%";
 
-                        int nb = (from i in db.skippeds
-                                  where i.student_id == id && i.sem == sem && i.skipdate == DateTime.Now.Date && i.type == 'b'
-                                  select i).Count();
-
-                        lblskipped.Text = "You have skipped " + nl + " lectures and " + nb + " labs today.";
                     }
                 }
             }
             catch (Exception ex) { }
+        }
+
+        protected void gvskipedsessions_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[0].Text = "Session";
+                e.Row.Cells[1].Text = "Date";
+            }
         }
 
         protected void gvtimetable_RowDataBound(object sender, GridViewRowEventArgs e)

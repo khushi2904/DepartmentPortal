@@ -35,6 +35,32 @@ namespace DepartmentPortal
                             txtfullname.Text = q.faculty_name.ToString();
                             txtid.Text = q.faculty_id.ToString();
                             txtadd.Text = q.address.ToString();
+
+
+                            var la = from i in db.m_lastaccesseds
+                                     where i.student_id == Session["id"].ToString()
+                                     select i;
+
+                            if (!la.Any())
+                            {
+                                m_lastaccessed mla = new m_lastaccessed()
+                                {
+                                    student_id = Session["id"].ToString(),
+                                    lastaccesssed = DateTime.Now
+                                };
+                                db.m_lastaccesseds.InsertOnSubmit(mla);
+                                db.SubmitChanges();
+                            }
+
+                            var la1 = la.Single();
+                            DateTime lat = Convert.ToDateTime(la1.lastaccesssed);
+
+                            Session["messagecount"] = (from i in db.messages
+                                           where lat.CompareTo(i.sent_time) < 0
+                                           select i).Count();
+
+
+
                         }
 
                         if (Session["type"].ToString() == "f")

@@ -3525,7 +3525,7 @@ namespace DepartmentPortal
 		
 		private System.Nullable<decimal> _attendance;
 		
-		private System.Nullable<decimal> _est_attendance;
+		private System.Nullable<int> _est_attendance;
 		
 		private EntitySet<InternalMark> _InternalMarks;
 		
@@ -3543,7 +3543,7 @@ namespace DepartmentPortal
     partial void Onsession_typeChanged();
     partial void OnattendanceChanging(System.Nullable<decimal> value);
     partial void OnattendanceChanged();
-    partial void Onest_attendanceChanging(System.Nullable<decimal> value);
+    partial void Onest_attendanceChanging(System.Nullable<int> value);
     partial void Onest_attendanceChanged();
     #endregion
 		
@@ -3638,8 +3638,8 @@ namespace DepartmentPortal
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_est_attendance", DbType="Decimal(4,2)")]
-		public System.Nullable<decimal> est_attendance
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_est_attendance", DbType="Int")]
+		public System.Nullable<int> est_attendance
 		{
 			get
 			{
